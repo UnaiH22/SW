@@ -9,7 +9,7 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-      <form action="AddQuesiton.php" id="fquestion" name="fquestion" method="get" onsubmit="return verificar()">
+      <form action="AddQuestion.php" id="fquestion" name="fquestion" method="get" onsubmit="return verificar()">
         <label for="email">E-mail<span style="color: #800080">(*)</span>:</label>
         <input type="text" id="email" name="email"><br><br>
 
