@@ -7,10 +7,11 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
+      <form action="QuestionForm.php" method="post">
+        <label for="email">E-mail<span style="color: #800080">(*)</span>:</label>
+        <input type="text" id="email" name="email"><br><br>
 
-      Añadir el formulario y los scripts necesarios para que el usuario <br>
-      pueda introducir los datos de una pregunta sin imagen.
-
+      </form>
     </div>
   </section>
   <?php include '../html/Footer.html' ?>
