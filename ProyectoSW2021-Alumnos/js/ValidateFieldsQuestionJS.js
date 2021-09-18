@@ -9,8 +9,8 @@ function verificar()
     var dificultad = document.getElementById("dificultad").value;
     var tema = document.getElementById("tema").value;
 
-    var regExEmailStud = /[a-z]+\d{3}\@ikasle\.ehu\.(eus|es)/;
-    var regExEmailProf = /([a-z]+|[a-z]+\.[a-z]+)\@ehu\.(eus|es)/;
+    var regExEmailStud = /[a-z]+\d{3}@ikasle\.ehu\.(eus|es)/;
+    var regExEmailProf = /([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es)/;
 
     if (email.length < 1 || pregunta.length < 1 || respuestaCorrecta.length < 1 || respuestaInc1.length < 1 || respuestaInc2.length < 1 || respuestaInc3.length < 1 || tema.length < 1)
     {
