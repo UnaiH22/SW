@@ -11,7 +11,7 @@
       <h2>DATOS DEL AUTOR/AUTORES</h2>
       <h3>Unai del Rio</h3>
       <h4>Ingeniería del Software</h4>
-      <img src="/images/avatar.jpg" alt="foto" height="48" width="48" />
+      <img src='../images/avatar.png' alt="foto" height="48" width="48" />
 
     </div>
   </section>
