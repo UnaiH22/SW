@@ -35,6 +35,8 @@
         <label for="tema">Tema<span style="color: #800080">(*)</span>:</label>
         <input type="text" id="tema" name="tema"><br><br>
 
+        <input type="submit" value="Enviar" name="enviar">
+
 
       </form>
     </div>
