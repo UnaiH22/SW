@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script language="JavaScript" src="../js/ValidateFieldsQuestionJS.js"></script>
   <?php include '../html/Head.html'?>
 </head>
+
 <body>
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-      <form action="../js/ValidateFieldsQuestionJS.js" method="post">
+      <form action="AddQuesiton.php" id="fquestion" name="fquestion" method="get" onsubmit="return verificar()">
         <label for="email">E-mail<span style="color: #800080">(*)</span>:</label>
         <input type="text" id="email" name="email"><br><br>
 

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script language="JavaScript" src="../js/ValidateFieldsQuestionJS.js"></script>
   <?php include '../html/Head.html'?>
 </head>
+
 <body>
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-
-    <form action="../js/ValidateFieldsQuestionJS.js" method="post" enctype="multipart/form-data">
+      <form action="AddQuestionWithImage.php" id="fquestion" name="fquestion" method="post" enctype="multipart/form-data" onsubmit="return verificar()">
         <label for="email">E-mail<span style="color: #800080">(*)</span>:</label>
         <input type="text" id="email" name="email"><br><br>
 
@@ -40,7 +41,7 @@
         <input type="file" name="imagen" id="imagen"><br><br>
 
         <input type="submit" value="Enviar" name="enviar">
-
+      </form>
     </div>
   </section>
   <?php include '../html/Footer.html' ?>
