@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script language="JavaScript" src="../js/ValidateFieldsQuestionJS.js"></script>
+  <!-- <script language="JavaScript" src="../js/ValidateFieldsQuestionJS.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script language=JavaScript src="../js/ValidateFieldsQuestionJQ.js"></script>
+  <script language=JavaScript src="../js/ShowImageInForm.js"></script>
   <?php include '../html/Head.html'?>
 </head>
 
@@ -38,7 +41,8 @@
         <input type="text" id="tema" name="tema"><br><br>
 
         <label for="imagen">Imagen:</label>
-        <input type="file" name="imagen" id="imagen"><br><br>
+        <input type="file" name="imagen" id="imagen" accept="image/*" onchange="readURL(event)"><br>
+        <img id="output" width="100" /><br><br>
 
         <input type="submit" value="Enviar" name="enviar">
       </form>
