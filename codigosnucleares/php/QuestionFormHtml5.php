@@ -2,6 +2,29 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
+  <script language="JavaScript">
+    function verificar()
+{
+    var email = document.getElementById("email").value;
+    var pregunta = document.getElementById("pregunta").value;
+
+    var regExEmailStud = new RegExp("[a-z]+[0-9]{3}@ikasle\.ehu\.(eus|es)");
+    var regExEmailProf = new RegExp("([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es)");
+
+    if (pregunta.length < 10)
+    {
+        alert("La pregunta debe de tener al menos 10 caracteres.");
+        return false;
+    }
+
+    if (!regExEmailStud.test(email) && !regExEmailProf.test(email))
+    {
+        alert("Email no válido");
+        return false;
+    }
+    return true;
+}
+  </script>
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
