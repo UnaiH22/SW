@@ -2,6 +2,7 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
+  <script language=JavaScript src="../js/ShowImageInForm.js"></script>
   <script language="JavaScript">
     function verificar()
 {
