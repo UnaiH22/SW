@@ -61,7 +61,7 @@
 
         <label for="imagen">Imagen:</label>
         <input type="file" name="imagen" id="imagen" accept="image/*" onchange="readURL(event)"><br>
-        <img id="output" height="150" /><br><br>
+        <img id="output" height="150" /><br>
 
         <input type="submit" value="Enviar" name="enviar">
       </form>
