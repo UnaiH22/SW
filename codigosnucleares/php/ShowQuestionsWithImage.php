@@ -7,8 +7,19 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-      Código PHP para mostrar una tabla con las preguntas de la BD.<br>
-      La tabla incluye las imágenes de la BD.
+      <?php
+      $link= mysqli_connect("localhost", "root", "", "prueba");
+      $quizes = mysqli_query($link, "select * from quiz"); 
+      echo '<table border=1> <tr> <th> Pregunta </th> <th> Respuesta Correcta </th> <th> Respuesta Incorrecta </th> <th> Respuesta Incorrecta </th> <th> Respuesta Incorrecta </th> <th> Dificultad </th> <th> Tema </th> <th> Imagen </th>
+      </tr>';
+      while ($row = mysqli_fetch_row($quizes)) 
+      {
+        echo '<tr><td>' . $row[0] . '</td> <td>' . $row[1] . '</td> <td>' . $row[2] . '</td> <td>' . $row[3] . '</td> <td>' . $row[4] . '</td> <td>' . $row[5] . '</td> <td>' . $row[6] . '</td> <td>' . "<td><img src='../images/$row[7].jpg' height='50px' width='100px'></td>" . '</td></tr>';
+      }
+      echo '</table>';
+      $quizes->close();
+      mysqli_close($link);
+      ?>
     </div>
   </section>
   <?php include '../html/Footer.html' ?>
