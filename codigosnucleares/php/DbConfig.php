@@ -1,5 +1,5 @@
 <?php
-$local=1; //0 para la nube
+$local=0; //0 para la nube
 if ($local==1){
     $server="localhost";
     $user="root";
@@ -7,9 +7,9 @@ if ($local==1){
     $basededatos="quiz";
 }
 else{
-    $server="localhost";
-    $user="";
-    $pass="";
-    $basededatos="";
+    $server="https://sw.ikasten.io/pmasw/";
+    $user="G19";
+    $pass="35VHZskBwNxae";
+    $basededatos="db_G19";
 }
 ?>

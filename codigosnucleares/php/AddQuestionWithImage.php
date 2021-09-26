@@ -9,7 +9,7 @@
     <div>
 
     <?php
-      $link = mysqli_connect("localhost", "root", "", "prueba");
+      $link = mysqli_connect("https://sw.ikasten.io/pmasw/", "G19", "35VHZskBwNxae", "db_G19");
 
       $target_dir = "../images/";
       $target_file = $target_dir . basename($_FILES["imagen"]["name"]);
@@ -21,7 +21,7 @@
 
       $image=basename($_FILES["imagen"]["name"],".jpg"); // para guardar en una variable el nombre de la imagen
 
-      $sql="INSERT INTO quiz(Pregunta, CorrectAns, IncAns1, IncAns2, IncAns3, Dificultad, Tema, ImagenPath) VALUES ('$_POST[pregunta]','$_POST[respuestaCorrecta]','$_POST[respuestaIncorrecta1]','$_POST[respuestaIncorrecta2]','$_POST[respuestaIncorrecta3]','$_POST[dificultad]','$_POST[tema]', '$image')";
+      $sql="INSERT INTO Preguntas(Email, Pregunta, CorrectAns, IncAns1, IncAns2, IncAns3, Dificultad, Tema, Imagen) VALUES ('$_POST[email]','$_POST[pregunta]','$_POST[respuestaCorrecta]','$_POST[respuestaIncorrecta1]','$_POST[respuestaIncorrecta2]','$_POST[respuestaIncorrecta3]','$_POST[dificultad]','$_POST[tema]', '$image')";
 
       if (!mysqli_query($link ,$sql))
       {
