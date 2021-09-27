@@ -10,7 +10,7 @@
     <div>
 
     <?php
-      $link = mysqli_connect($server, $user, $pass, $basededatos);
+      $link = mysqli_connect("$server", "$user", "$pass", "$basededatos");
 
       $target_dir = "../images/";
       $target_file = $target_dir . basename($_FILES["imagen"]["name"]);
