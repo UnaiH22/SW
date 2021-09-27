@@ -33,9 +33,9 @@
 
         <label for="dificultad">Dificultad<span style="color: #800080">(*)</span>:</label>
         <select id="dificultad" name="dificultad">
-          <option selected="selected" value=1>1</option>
-          <option value=2>2</option>
-          <option value=3>3</option></select><br><br>
+          <option selected="selected" value=1>Baja</option>
+          <option value=2>Media</option>
+          <option value=3>Alta</option></select><br><br>
 
         <label for="tema">Tema<span style="color: #800080">(*)</span>:</label>
         <input type="text" id="tema" name="tema"><br><br>

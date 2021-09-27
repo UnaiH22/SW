@@ -6,11 +6,9 @@ function verificar()
     var respuestaInc1 = $("#respuestaIncorrecta1").val();
     var respuestaInc2 = $("#respuestaIncorrecta2").val();
     var respuestaInc3 = $("#respuestaIncorrecta3").val();
-    var dificultad = $("#dificultad").val();
     var tema = $("#tema").val();
 
-    var regExEmailStud = new RegExp("[a-z]+[0-9]{3}@ikasle\.ehu\.(eus|es)");
-    var regExEmailProf = new RegExp("([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es)");
+    var regExEmail = /^(([a-z]+[0-9]{3}@ikasle\.ehu\.(eus|es))|(([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es)))$/;
 
     if($.trim(email).length < 1 || $.trim(pregunta).length < 1 || $.trim(respuestaCorrecta).length < 1 || $.trim(respuestaInc1).length < 1 || $.trim(respuestaInc2).length < 1 || $.trim(respuestaInc3).length < 1 || $.trim(tema).length < 1)
     {
@@ -24,7 +22,7 @@ function verificar()
         return false;
     }
 
-    if(!regExEmailStud.test(email) && !regExEmailProf.test(email))
+   if(!regExEmail.test(email))
     {
         alert("Email no válido");
         return false;
