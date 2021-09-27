@@ -5,11 +5,12 @@
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
+  <?php include '/DbConfig.php' ?>
   <section class="main" id="s1">
     <div>
 
     <?php
-      $link = mysqli_connect("https://sw.ikasten.io/pmasw/", "G19", "35VHZskBwNxae", "db_G19");
+      $link = mysqli_connect($server, $user, $pass, $basededatos);
 
       $target_dir = "../images/";
       $target_file = $target_dir . basename($_FILES["imagen"]["name"]);

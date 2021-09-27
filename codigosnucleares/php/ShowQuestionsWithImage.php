@@ -5,10 +5,11 @@
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
+  <?php include '/DbConfig.php' ?>
   <section class="main" id="s1">
     <div>
       <?php
-      $link= mysqli_connect("https://sw.ikasten.io/pmasw/", "G19", "35VHZskBwNxae", "db_G19");
+      $link= mysqli_connect($server, $user, $pass, $basededatos);
       $quizes = mysqli_query($link, "select * from Preguntas"); 
       echo '<table border=1> <tr> <th> Sugerido por </th> <th> Pregunta </th> <th> Respuesta Correcta </th> <th> Respuesta Incorrecta </th> <th> Respuesta Incorrecta </th> <th> Respuesta Incorrecta </th> <th> Dificultad </th> <th> Tema </th> <th> Imagen </th>
       </tr>';
