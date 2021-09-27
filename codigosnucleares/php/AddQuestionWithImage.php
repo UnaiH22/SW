@@ -26,7 +26,7 @@
 
       if (!mysqli_query($link ,$sql))
       {
-        die('Error: ' . mysqli_error($link));
+        die('Error: ' . print_r( mysqli_error($link), 1 ));
       }
       echo "Pregunta añadida correctamente.";
       echo "<p> <a href='ShowQuestionsWithImage.php'> Ver Preguntas </a>";
