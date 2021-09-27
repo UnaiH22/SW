@@ -7,7 +7,7 @@ if ($local==1){
     $basededatos="quiz";
 }
 else{
-    $server="https://sw.ikasten.io/pmasw/";
+    $server="localhost";
     $user="G19";
     $pass="35VHZskBwNxae";
     $basededatos="db_G19";
