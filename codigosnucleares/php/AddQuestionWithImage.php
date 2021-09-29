@@ -14,14 +14,14 @@
       if (!strlen($_FILES["imagen"]["name"]) < 1)
       {
         $target_dir = "../images/";
-        $target_file = $target_dir . basename($_FILES["imagen"]["name"]);
+        $target_file = $target_dir . $_FILES["imagen"]["name"];
 
         if(!move_uploaded_file($_FILES["imagen"]["tmp_name"], $target_file))
         {
           exit(1);
         }
 
-        $image=basename($_FILES["imagen"]["name"],".jpg"); // para guardar en una variable el nombre de la imagen
+        $image=$_FILES["imagen"]["name"]; // para guardar en una variable el nombre de la imagen
         $sql="INSERT INTO Preguntas(Email, Pregunta, CorrectAns, IncAns1, IncAns2, IncAns3, Dificultad, Tema, Imagen) VALUES ('$_POST[email]','$_POST[pregunta]','$_POST[respuestaCorrecta]','$_POST[respuestaIncorrecta1]','$_POST[respuestaIncorrecta2]','$_POST[respuestaIncorrecta3]','$_POST[dificultad]','$_POST[tema]', '$image')";
       }
       else
