@@ -82,7 +82,7 @@ if (isset($_POST['tema']) && strlen($_POST['tema']) == 0) {
         echo "<p> <a href='ShowQuestionsWithImage.php'> Ver Preguntas </a>";
         mysqli_close($link);
       } else {
-        echo("Errorosdijfidudh:" . strlen( $error ) );
+        echo( $error );
       }
       ?>
 

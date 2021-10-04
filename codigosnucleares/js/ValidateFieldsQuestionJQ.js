@@ -1,6 +1,6 @@
 $(document).ready(function()
 {
-    $("#enviar").click(function()
+    /*$("#enviar").click(function()
     {
         var email = $('#email').val();
         var pregunta = $("#pregunta").val();
@@ -30,7 +30,7 @@ $(document).ready(function()
             return false;
         }
         return true;
-    });
+    });*/
 
     $("#borrar").click(function()
     {
