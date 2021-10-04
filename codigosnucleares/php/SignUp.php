@@ -62,7 +62,7 @@
               {
                 $image = "no_image";
               }
-              $sql = "INSERT INTO usuarios(Tipo, Email, Nombre, Contraseña, Foto) VALUES ('$us_tipo','$us_email','$us_nombre','$us_pw','$image')";
+              $sql = "INSERT INTO Usuarios(Tipo, Email, Nombre, Contraseña, Foto) VALUES ('$us_tipo','$us_email','$us_nombre','$us_pw','$image')";
               if (!mysqli_query($link, $sql)) {
                 die('Error en la query: ' . mysqli_error($link));
               }
