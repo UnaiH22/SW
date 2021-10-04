@@ -12,7 +12,8 @@
         $us_pw = trim($_POST['passwordUser']);
         $us_pw2 = trim($_POST['passwordUser2']);
 
-        $regEmail = preg_match("/^(([a-z]+[0-9]{3}@ikasle\.ehu\.(eus|es))|(([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es)))$/", $us_email);
+        $regEmailStud = preg_match("/^([a-z]+[0-9]{3}@ikasle\.ehu\.(eus|es))$/", $us_email);
+        $regEmailProf = preg_match("/^(([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es))$/", $us_email);
         $regNombre = preg_match("/^[A-Za-z]{2,}\s[A-Za-z]{2,}$/", $us_nombre);
 
         $link = mysqli_connect($server, $user, $pass, $basededatos);
@@ -20,7 +21,8 @@
         $cont= mysqli_num_rows($usuarios);
         mysqli_close( $link);
 
-        if (!$regEmail)
+
+        if ($us_tipo == "Estudiante" && !$regEmailStud || $us_tipo == "Profesor" && !$regEmailProf)
         {
             $error_email = "Email no válido.";
         }
