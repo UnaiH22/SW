@@ -1,3 +1,46 @@
+<?php
+
+$error = "";
+if (isset($_POST['email']))
+{
+  if (!preg_match("/^(([a-z]+[0-9]{3}@ikasle\.ehu\.(eus|es))|(([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es)))$/", $_POST['email']))
+  {
+    $error = "Email no válido."
+  }
+}
+
+if (strlen(isset($_POST['pregunta'])) < 10)
+{
+  $error .= "La pregunta debe tener 10 caracteres."
+}
+
+if (strlen(isset($_POST['respuestaCorrecta'])) == 0)
+{
+  $error .= "La respuesta correcta está vacía."
+}
+
+if (strlen(isset($_POST['respuestaIncorrecta1'])) == 0)
+{
+  $error .= "La respuesta incorrecta1 está vacía."
+}
+
+if (strlen(isset($_POST['respuestaIncorrecta2'])) == 0)
+{
+  $error .= "La respuesta incorrecta2 está vacía."
+}
+
+if (strlen(isset($_POST['respuestaIncorrecta3'])) == 0)
+{
+  $error .= "La respuesta incorrecta3 está vacía."
+}
+
+if (strlen(isset($_POST['tema'])) == 0)
+{
+  $error .= "El tema está vacío."
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +53,9 @@
     <div>
 
     <?php
+
+    if ($errores == "")
+    {
       $link = mysqli_connect($server, $user, $pass, $basededatos);
       if (!strlen($_FILES["imagen"]["name"]) < 1)
       {
@@ -36,6 +82,11 @@
       echo "Pregunta añadida correctamente.";
       echo "<p> <a href='ShowQuestionsWithImage.php'> Ver Preguntas </a>";
       mysqli_close($link); 
+    }
+    else
+    {
+      echo $error;
+    }
       ?>
 
     </div>
