@@ -87,7 +87,7 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-      <form action = "" id="register" name="register" method="POST" enctype="multipart/form-data">
+      <form id="register" name="register" method="POST" enctype="multipart/form-data">
 
       <div class="form-check">
       Tipo de usuario<span style="color: #800080">(*)</span>:
@@ -99,7 +99,7 @@
 
       <div class=form-group>
       <label for="emailUser">E-mail<span style="color: #800080">(*)</span>:</label>
-      <input style="width: 400px" type="text" id="emailUser" name="emailUser" placeholder="nombre222@ikasle.ehu.eus | nombre@ehu.es"><br>
+      <input style="width: 400px" type="text" id="emailUser" name="emailUser" placeholder="nombre222@ikasle.ehu.eus | nombre@ehu.es" value="<?php if ( isset($us_email) ) echo $us_email; ?>"><br>
       <?php if(isset($error_email))
       {
           echo "<font color='red'>".$error_email."</font>";
@@ -108,7 +108,7 @@
 
       <div class=form-group>
       <label for="nombreApellidos">Nombre y Apellidos<span style="color: #800080">(*)</span>:</label>
-      <input style="width: 300px" type="text" id="nombreApellidos" name="nombreApellidos" placeholder="Hugh Jass"><br>
+      <input style="width: 300px" type="text" id="nombreApellidos" name="nombreApellidos" placeholder="Hugh Jass" value="<?php if ( isset($us_nombre) ) echo $us_nombre; ?>"><br>
       <?php if(isset($error_nom))
       {
           echo "<font color='red'>".$error_nom."</font>";
