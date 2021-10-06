@@ -5,6 +5,10 @@
     header("Location: LogIn.php");
     die();
   }
+  else
+  {
+    $elemail = $_SESSION['user'];
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,22 +27,22 @@
     <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">Insertar Pregunta</h1><br>
       <form action="AddQuestionWithImage.php" id="fquestion" name="fquestion" method="post" enctype="multipart/form-data">
         <label for="email">E-mail<span style="color: #800080">(*)</span>:</label>
-        <input type="text" id="email" name="email"><br><br>
+        <input type="text" style="width: 200px" id="email" name="email" value="<?php echo htmlspecialchars($elemail); ?>" readonly><br><br>
 
         <label for="pregunta">Pregunta<span style="color: #800080">(*)</span>:</label>
-        <input type="text" id="pregunta" name="pregunta"><br><br>
+        <input type="text" style="width: 200px" id="pregunta" name="pregunta"><br><br>
 
         <label for="respuestaCorrecta">Respuesta Correcta<span style="color: #800080">(*)</span>:</label>
-        <input type="text" id="respuestaCorrecta" name="respuestaCorrecta"><br><br>
+        <input type="text" style="width: 200px" id="respuestaCorrecta" name="respuestaCorrecta"><br><br>
 
         <label for="respuestaIncorrecta1">Respuesta Incorrecta 1<span style="color: #800080">(*)</span>:</label>
-        <input type="text" id="respuestaIncorrecta1" name="respuestaIncorrecta1"><br><br>
+        <input type="text" style="width: 200px" id="respuestaIncorrecta1" name="respuestaIncorrecta1"><br><br>
 
         <label for="respuestaIncorrecta2">Respuesta Incorrecta 2<span style="color: #800080">(*)</span>:</label>
-        <input type="text" id="respuestaIncorrecta2" name="respuestaIncorrecta2"><br><br>
+        <input type="text" style="width: 200px" id="respuestaIncorrecta2" name="respuestaIncorrecta2"><br><br>
 
         <label for="respuestaIncorrecta3">Respuesta Incorrecta 3<span style="color: #800080">(*)</span>:</label>
-        <input type="text" id="respuestaIncorrecta3" name="respuestaIncorrecta3"><br><br>
+        <input type="text" style="width: 200px" id="respuestaIncorrecta3" name="respuestaIncorrecta3"><br><br>
 
         <label for="dificultad">Dificultad<span style="color: #800080">(*)</span>:</label>
         <select id="dificultad" name="dificultad">
@@ -47,7 +51,7 @@
           <option value=3>Alta</option></select><br><br>
 
         <label for="tema">Tema<span style="color: #800080">(*)</span>:</label>
-        <input type="text" id="tema" name="tema"><br><br>
+        <input type="text" style="width: 200px" id="tema" name="tema"><br><br>
 
         <label for="imagen">Imagen:</label>
         <input type="file" name="imagen" id="imagen" accept="image/*" onchange="readURL(event)">
