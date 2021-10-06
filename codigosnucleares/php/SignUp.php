@@ -17,7 +17,7 @@
         $regNombre = preg_match("/^[A-Za-z]{2,}\s[A-Za-z]{2,}$/", $us_nombre);
 
         $link = mysqli_connect($server, $user, $pass, $basededatos);
-        $usuarios = mysqli_query($link,"select * from usuarios where Email ='$us_email'");
+        $usuarios = mysqli_query($link,"select * from Usuarios where Email ='$us_email'");
         $cont= mysqli_num_rows($usuarios);
         mysqli_close( $link);
 
