@@ -1,3 +1,11 @@
+<?php
+  session_start(); 
+  if (!isset($_SESSION['user']))
+  {
+    header("Location: LogIn.php");
+    die();
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +16,7 @@
   <?php include 'DbConfig.php' ?>
   <section class="main" id="s1">
     <div>
+    <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">Preguntas</h1><br>
       <?php
       $link= mysqli_connect($server, $user, $pass, $basededatos);
       $quizes = mysqli_query($link, "select * from Preguntas"); 

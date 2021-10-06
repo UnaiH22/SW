@@ -87,6 +87,7 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
+    <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">Registrarse</h1><br>
       <form id="register" name="register" method="POST" enctype="multipart/form-data">
 
       <div class="form-check">
@@ -132,7 +133,7 @@
       <label for="imagen">Imagen:</label>
       <input type="file" name="imagen" id="imagen" accept="image/*" onchange="readURL(event)">
       <button type="button" id="borrar" name="borrar" value="Borrar">Borrar</button><br>
-      <img id="output" height="150"/><br>
+      <img id="output" height="85"/><br>
 
       <input type="submit" value="Enviar" name="enviar" id="enviar">
       </form>

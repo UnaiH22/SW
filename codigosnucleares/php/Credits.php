@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +11,7 @@
   <section class="main" id="s1">
     <div>
 
-      <h2>DATOS DEL AUTOR/AUTORES</h2>
+    <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">Datos de los Autores</h1><br>
       <h3>Unai del Rio  / Unai Heras</h3>
       <h4>Ingeniería del Software</h4>
       <img src='../images/avatar.png' alt="foto" height="70" width="70" />

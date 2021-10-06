@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +11,7 @@
   <section class="main" id="s1">
     <div>
 
-      <h2>Quiz: el juego de las preguntas</h2>
+    <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">Quiz: El juego de las preguntas</h1><br>
       
     </div>
   </section>

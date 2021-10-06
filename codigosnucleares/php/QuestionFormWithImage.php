@@ -1,3 +1,11 @@
+<?php
+  session_start();
+  if (!isset($_SESSION['user']))
+  {
+    header("Location: LogIn.php");
+    die();
+  }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +20,7 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
+    <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">Insertar Pregunta</h1><br>
       <form action="AddQuestionWithImage.php" id="fquestion" name="fquestion" method="post" enctype="multipart/form-data">
         <label for="email">E-mail<span style="color: #800080">(*)</span>:</label>
         <input type="text" id="email" name="email"><br><br>
