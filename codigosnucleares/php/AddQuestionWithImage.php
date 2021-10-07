@@ -1,7 +1,13 @@
 <?php
+session_start();
+if (!isset($_SESSION['user']))
+{
+  header("Location: Layout.php");
+  die();
+}
 $reg = preg_match("/^(([a-z]+[0-9]{3}@ikasle\.ehu\.(eus|es))|(([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es)))$/", $_POST['email']);
 $error = "";
-
+$us_email = $_SESSION['user'];
 
 
 if (isset($_POST['email'])) {
@@ -68,10 +74,10 @@ if (isset($_POST['tema']) && strlen($_POST['tema']) == 0) {
           }
 
           $image = $_FILES["imagen"]["name"]; // para guardar en una variable el nombre de la imagen
-          $sql = "INSERT INTO Preguntas(Email, Pregunta, CorrectAns, IncAns1, IncAns2, IncAns3, Dificultad, Tema, Imagen) VALUES ('$_POST[email]','$_POST[pregunta]','$_POST[respuestaCorrecta]','$_POST[respuestaIncorrecta1]','$_POST[respuestaIncorrecta2]','$_POST[respuestaIncorrecta3]','$_POST[dificultad]','$_POST[tema]', '$image')";
+          $sql = "INSERT INTO Preguntas(Email, Pregunta, CorrectAns, IncAns1, IncAns2, IncAns3, Dificultad, Tema, Imagen) VALUES ('$us_email','$_POST[pregunta]','$_POST[respuestaCorrecta]','$_POST[respuestaIncorrecta1]','$_POST[respuestaIncorrecta2]','$_POST[respuestaIncorrecta3]','$_POST[dificultad]','$_POST[tema]', '$image')";
         } else {
           $image = "no_image";
-          $sql = "INSERT INTO Preguntas(Email, Pregunta, CorrectAns, IncAns1, IncAns2, IncAns3, Dificultad, Tema, Imagen) VALUES ('$_POST[email]','$_POST[pregunta]','$_POST[respuestaCorrecta]','$_POST[respuestaIncorrecta1]','$_POST[respuestaIncorrecta2]','$_POST[respuestaIncorrecta3]','$_POST[dificultad]','$_POST[tema]', '$image')";
+          $sql = "INSERT INTO Preguntas(Email, Pregunta, CorrectAns, IncAns1, IncAns2, IncAns3, Dificultad, Tema, Imagen) VALUES ('$us_email','$_POST[pregunta]','$_POST[respuestaCorrecta]','$_POST[respuestaIncorrecta1]','$_POST[respuestaIncorrecta2]','$_POST[respuestaIncorrecta3]','$_POST[dificultad]','$_POST[tema]', '$image')";
         }
 
 

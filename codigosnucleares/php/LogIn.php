@@ -1,6 +1,11 @@
 <?php include 'DbConfig.php' ?>
 <?php
     session_start();
+    if (isset($_SESSION['user']))
+    {
+      header("Location: Layout.php");
+      die();
+    }
     if (isset($_POST['enviar']))
     {
         $error = "";

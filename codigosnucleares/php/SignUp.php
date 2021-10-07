@@ -1,5 +1,11 @@
 <?php include 'DbConfig.php' ?>
 <?php
+    session_start();
+    if (isset($_SESSION['user']))
+    {
+      header("Location: Layout.php");
+      die();
+    }
     if (isset($_POST['enviar']))
     {
         $error_email="";
@@ -60,7 +66,9 @@
               } 
               else 
               {
-                $image = "no_image";
+                $default_images = array("brainlet1.jpg", "brainlet2.jpg", "brainlet3.jpg", "brainlet4.jpg", "brainlet5.jpg", "brainlet6.jpg", "brainlet7.jpg", "brainlet8.jpg", "brainlet9.jpg", "brainlet10.jpg");
+                $random_img = rand(0,9);
+                $image = $default_images[rand(0,9)];
               }
               $sql = "INSERT INTO Usuarios(Tipo, Email, Nombre, Contraseña, Foto) VALUES ('$us_tipo','$us_email','$us_nombre','$us_pw','$image')";
               if (!mysqli_query($link, $sql)) {
