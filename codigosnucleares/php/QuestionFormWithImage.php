@@ -5,10 +5,10 @@
     header("Location: LogIn.php");
     die();
   }
-  else
+  /*else
   {
     $elemail = $_SESSION['user'];
-  }
+  }*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,7 +27,8 @@
     <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">Insertar Pregunta</h1><br>
       <form action="AddQuestionWithImage.php" id="fquestion" name="fquestion" method="post" enctype="multipart/form-data">
         <label for="email">E-mail<span style="color: #800080">(*)</span>:</label>
-        <input type="text" style="width: 200px" id="email" name="email" value="<?php echo htmlspecialchars($elemail); ?>" readonly><br><br>
+        <!--<input type="text" style="width: 200px" id="email" name="email" value="<?php //echo htmlspecialchars($elemail); ?>" readonly><br><br> -->
+        <input type="text" style="width: 200px" id="email" name="email" readonly value="<?php if(isset($_REQUEST['useremail']))echo $_REQUEST['useremail'];?>"><br><br>
 
         <label for="pregunta">Pregunta<span style="color: #800080">(*)</span>:</label>
         <input type="text" style="width: 200px" id="pregunta" name="pregunta"><br><br>

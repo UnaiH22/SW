@@ -9,13 +9,6 @@ $reg = preg_match("/^(([a-z]+[0-9]{3}@ikasle\.ehu\.(eus|es))|(([a-z]+|[a-z]+\.[a
 $error = "";
 $us_email = $_SESSION['user'];
 
-
-if (isset($_POST['email'])) {
-  if (!$reg) {
-    $error = nl2br("Email no válido.\n");
-  }
-}
-
 if (isset($_POST['pregunta']) && strlen($_POST['pregunta']) < 10) {
   $error .= nl2br("La pregunta debe tener 10 caracteres.\n");
 }
