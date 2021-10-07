@@ -22,5 +22,7 @@ else
   <span><?php echo "<a href=$newUrl> Insertar Pregunta</a>";?></span>
   <span><a href='ShowQuestionsWithImage.php'>Ver Preguntas</a></span>
   <span><a href='Credits.php'>Creditos</a></span>
+  <span></span>
+  <span><a href='SearchUser.php'>Buscar Usuario</a></span>
 </nav>
 
