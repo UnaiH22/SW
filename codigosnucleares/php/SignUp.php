@@ -20,7 +20,7 @@
 
         $regEmailStud = preg_match("/^([a-z]+[0-9]{3}@ikasle\.ehu\.(eus|es))$/", $us_email);
         $regEmailProf = preg_match("/^(([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es))$/", $us_email);
-        $regNombre = preg_match("/^[A-Za-z]{2,}\s[A-Za-z]{2,}$/", $us_nombre);
+        $regNombre = preg_match("/^[A-Za-z]{2,}\s[A-Za-z]{2,}([A-Za-z]|\s)*$/", $us_nombre);
 
         $link = mysqli_connect($server, $user, $pass, $basededatos);
         $usuarios = mysqli_query($link,"select * from Usuarios where Email ='$us_email'");

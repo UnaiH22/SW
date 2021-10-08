@@ -13,7 +13,7 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-    <h1 style="font-size:300%;font-family:courier;background-color:lightblue;"><?php echo $_REQUEST['usuario_nombre']?></h1><br>
+    <h1 style="font-size:300%;font-family:courier;background-color:lightblue;"><?php if(isset($_REQUEST['usuario_nombre']))echo $_REQUEST['usuario_nombre']; else header("Location: Layout.php");?></h1><br>
       <form id="pregunts" name="pregunts" method="POST" enctype="multipart/form-data">
       <?php 
       if (isset($_REQUEST['usuario_nombre']))

@@ -14,7 +14,7 @@
       <form id="search" name="search" method="POST" enctype="multipart/form-data">
 
       <div class=form-group>
-      <label for="buscador">Usuario<span style="color: #800080">(*)</span>:</label>
+      <label for="buscador">Usuario:</label>
       <input style="width: 400px" type="text" id="buscador" name="buscador"><br>
       </div>
 
