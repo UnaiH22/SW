@@ -35,7 +35,6 @@ $(document).ready(function()
     $("#borrar").click(function()
     {
         $("#imagen").val("");
-        $("#output").hide();
-        return true;
+        $("#image").remove();
     });
 });

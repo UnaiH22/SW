@@ -141,8 +141,10 @@
       <label for="imagen">Imagen:</label>
       <input type="file" name="imagen" id="imagen" accept="image/*" onchange="readURL(event)">
       <button type="button" id="borrar" name="borrar" value="Borrar">Borrar</button><br>
-      <img id="output" height="85"/><br>
+      <div id="marco">
 
+      </div>
+      <br>
       <input type="submit" value="Enviar" name="enviar" id="enviar">
       </form>
     </div>

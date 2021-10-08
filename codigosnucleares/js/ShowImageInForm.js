@@ -1,6 +1,8 @@
 function readURL(event)
 {
-	var image = document.getElementById("output");
-	$("#output").show();
-	image.src = URL.createObjectURL(event.target.files[0]);
+    $('#image').remove();
+    var img = $('<img id="image">');    
+    img.attr('src', URL.createObjectURL(event.target.files[0]));
+    img.attr('height',105);
+    $(img).insertAfter('#marco');
 };
