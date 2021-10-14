@@ -34,9 +34,6 @@ if (isset($_POST['tema']) && strlen($_POST['tema']) == 0) {
   $error .= nl2br("El tema está vacío.\n");
 }
 
-
-// die(print_r($_POST,1));
-// die("E:". $error);
 ?>
 
 <!DOCTYPE html>
@@ -54,6 +51,7 @@ if (isset($_POST['tema']) && strlen($_POST['tema']) == 0) {
       <?php
       if ($error == "") 
       {
+        /*                  insert into DB                    */
         $link = mysqli_connect($server, $user, $pass, $basededatos);
 
         if (!strlen($_FILES["imagen"]["name"]) < 1) 
@@ -76,6 +74,8 @@ if (isset($_POST['tema']) && strlen($_POST['tema']) == 0) {
         if (!mysqli_query($link, $sql))
           die('Error en la query: ' . mysqli_error($link));
 
+
+        /*                  insert into XML                    */
         if (file_exists('../xml/Questions.xml'))
           $xml = simplexml_load_file('../xml/Questions.xml');
         else
@@ -108,6 +108,8 @@ if (isset($_POST['tema']) && strlen($_POST['tema']) == 0) {
         if(!$xmlDocument->save('../xml/Questions.xml'))
           die('Error al intentar guardar los datos en el xml.');
 
+        
+        /*                  insert into JSON                    */
         $data = file_get_contents("../json/Questions.json");
         if (!$data)
           die("Error al leer el json.");
@@ -119,22 +121,19 @@ if (isset($_POST['tema']) && strlen($_POST['tema']) == 0) {
         $pregunta = new stdClass();
         $pregunta->subject = trim($_POST['tema']);
         $pregunta->author = $us_email;
-        $pregunta->itemBody->p = trim($_POST['pregunta']);
-        $pregunta->correctResponse->value = trim($_POST['respuestaCorrecta']);
-        $pregunta->incorrectResponses->value[0] = trim($_POST['respuestaIncorrecta1']);
-        $pregunta->incorrectResponses->value[1] = trim($_POST['respuestaIncorrecta2']);
-        $pregunta->incorrectResponses->value[2] = trim($_POST['respuestaIncorrecta3']);
+        $pregunta->itemBody = array("p"=>trim($_POST['pregunta']));
+        $pregunta->correctResponse = array("value"=>trim($_POST['respuestaCorrecta']));
+        $pregunta->incorrectResponses = array("value"=>array(trim($_POST['respuestaIncorrecta1']),trim($_POST['respuestaIncorrecta2']),trim($_POST['respuestaIncorrecta3'])));
 
         $preguntaArray[0] = $pregunta;
         array_push($array->assessmentItems, $preguntaArray[0]);
 
-        $jsonData = json_encode($array);
-        $jsonData = str_replace('{', '{'.PHP_EOL, $jsonData);
-        $jsonData = str_replace(',', ','.PHP_EOL, $jsonData);
-        $jsonData = str_replace('}', '}'.PHP_EOL, $jsonData);
+        $jsonData = json_encode($array, JSON_PRETTY_PRINT);
+
         if(!file_put_contents("../json/Questions.json", $jsonData))
           die("Error al escribir al JSON.");
 
+        /*                  Response                    */
         echo "Pregunta añadida correctamente a la BD.";
         echo "<br>";
         echo "Pregunta añadida correctamente al XML.";
