@@ -108,9 +108,38 @@ if (isset($_POST['tema']) && strlen($_POST['tema']) == 0) {
         if(!$xmlDocument->save('../xml/Questions.xml'))
           die('Error al intentar guardar los datos en el xml.');
 
+        $data = file_get_contents("../json/Questions.json");
+        if (!$data)
+          die("Error al leer el json.");
+
+        $array = json_decode($data);
+        if ($array == null)
+          die("Error al decodificar el json.");
+
+        $pregunta = new stdClass();
+        $pregunta->subject = trim($_POST['tema']);
+        $pregunta->author = $us_email;
+        $pregunta->itemBody->p = trim($_POST['pregunta']);
+        $pregunta->correctResponse->value = trim($_POST['respuestaCorrecta']);
+        $pregunta->incorrectResponses->value[0] = trim($_POST['respuestaIncorrecta1']);
+        $pregunta->incorrectResponses->value[1] = trim($_POST['respuestaIncorrecta2']);
+        $pregunta->incorrectResponses->value[2] = trim($_POST['respuestaIncorrecta3']);
+
+        $preguntaArray[0] = $pregunta;
+        array_push($array->assessmentItems, $preguntaArray[0]);
+
+        $jsonData = json_encode($array);
+        $jsonData = str_replace('{', '{'.PHP_EOL, $jsonData);
+        $jsonData = str_replace(',', ','.PHP_EOL, $jsonData);
+        $jsonData = str_replace('}', '}'.PHP_EOL, $jsonData);
+        if(!file_put_contents("../json/Questions.json", $jsonData))
+          die("Error al escribir al JSON.");
+
         echo "Pregunta añadida correctamente a la BD.";
         echo "<br>";
         echo "Pregunta añadida correctamente al XML.";
+        echo "<br>";
+        echo "Pregunta añadida correctamente al JSON.";
         echo "<p> <a href='ShowQuestionsWithImage.php'> Ver Preguntas </a>";
         mysqli_close($link);
       } else {
