@@ -31,4 +31,17 @@
       <response> Ninguna es correcta </response>
     </incorrectResponses>
   </assessmentItem>
+  <assessmentItem subject="ruido muerte" author="preparetofacethemighty@ehu.es">
+    <itemBody>
+      <p>como muere el no muerto?</p>
+    </itemBody>
+    <correctResponse>
+      <response>wrin wrun wruaa</response>
+    </correctResponse>
+    <incorrectResponses>
+      <response>uuuum tzaaaa</response>
+      <response>re reeeeee</response>
+      <response>wuooo pooo</response>
+    </incorrectResponses>
+  </assessmentItem>
 </assessmentItems>
