@@ -1,0 +1,67 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script language="JavaScript" src="../js/GetUserInfoXml.js"></script>
+    <style>
+        fieldset{
+            background-color: #f1f1f1;
+            border: none;
+            border-radius: 2px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            padding: 0 .625em;
+        }
+
+        label{
+            cursor: pointer;
+            display: inline-block;
+            padding: 3px 6px;
+            text-align: right;
+            width: 150px;
+            vertical-align: top;
+        }
+
+        input{
+            font-size: inherit;
+        }
+
+        input[type=submit]
+        {
+            padding: 4px 4px;
+            margin: 9px 205px;
+        }
+    </style>
+</head>
+<body>
+  <section class="main" id="s1">
+    <div>
+        <h1>Datos de usuario a partir de su correo</h1><br>
+            <fieldset>
+                <p>
+                    <label for="correo">Correo<span style="color: #800080">(*)</span>:</label>
+                    <input type="text" style="width: 200px" id="correo" name="correo">
+                </p>
+                <p>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" style="width: 200px" id="nombre" name="nombre" readonly>
+                </p>
+                <p>
+                    <label for="apellido1">Apellido1:</label>
+                    <input type="text" style="width: 200px" id="apellido1" name="apellido1" readonly>
+                </p>
+                <p>
+                    <label for="apellido2">Apellido2:</label>
+                    <input type="text" style="width: 200px" id="apellido2" name="apellido2" readonly>
+                </p>
+                <p>
+                    <label for="tfno">Telefono:</label>
+                    <input type="text" style="width: 200px" id="tfno" name="tfno" readonly>
+                </p>
+                <p>
+                    <input type="submit" value="Autocompletar" name="autocompletar" id="autocompletar">
+                </p>
+            </fieldset>
+    </div>
+  </section>
+</body>
+</html>
