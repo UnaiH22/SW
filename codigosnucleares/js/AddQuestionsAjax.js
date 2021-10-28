@@ -4,7 +4,10 @@ function InsertarPregunta()
     var formElement = new FormData(document.getElementById("formPreguntas"));
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange=function() 
+    xmlhttp.open("POST", "../php/AddQuestionWithImage.php", true);
+    xmlhttp.setRequestHeader("Content-type","x-www-form-urlencoded");
+    
+    xmlhttp.onreadystatechange = function() 
     {
         if (this.readyState==4 && this.status==200)
         {
@@ -13,7 +16,5 @@ function InsertarPregunta()
         else
             output.innerHTML += "Error " + xmlhttp.status + ".<br />";
     }
-    xmlhttp.open("POST", "../php/AddQuestionWithImage.php", true);
-    xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     xmlhttp.send(formElement);
 }
