@@ -15,12 +15,13 @@
  <script language=JavaScript src="../js/AddQuestionsAjax.js"></script>
  <script language=JavaScript src="../js/ShowQuestionsAjax.js"></script>
  <script language=JavaScript src="../js/CountQuestions.js"></script>
+ <script language=JavaScript src="../js/GetUserCounter.js"></script>
  <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
 <style>
   .lasPreguntas
   {
     position: relative;
-    right: -50px;
+    right: -150px;
     top: -350px;
     width: 200px;
     font-family: 'Fira Mono', monospace;
@@ -28,11 +29,22 @@
     font-size: 20px;
     border: 1px solid pink;
   }
+  .losUsuarios
+  {
+    position: relative;
+    right: -150px;
+    top: -250px;
+    width: 200px;
+    font-family: 'Fira Mono', monospace;
+    font-weight: bold;
+    font-size: 20px;
+    border: 1px solid greenyellow;
+  }
 
   .showPreguntas
   {
     position: relative;
-    top: -30px;
+    top: -80px;
   }
 </style>
 
@@ -43,7 +55,7 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-    <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">Insertar Pregunta</h1><br>
+    <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">Gestionar Preguntas</h1><br>
       <form enctype="multipart/form-data" method="post" name="formPreguntas" id="formPreguntas">
         <label for="email">E-mail<span style="color: #800080">(*)</span>:</label>
         <input type="text" style="width: 200px" id="email" name="email" readonly value="<?php if(isset($_REQUEST['email']))echo $_REQUEST['email'];?>"><br><br>
@@ -81,10 +93,14 @@
         <input type="button" value="Enviar" name="enviar" id="enviar">
 
       </form>
+
       <div id="misPreguntas" class = "lasPreguntas">
+      </div>
+      <div id = "totalUsuarios" class = "losUsuarios">
       </div>
       <div id="preguntasFeedback" class = "showPreguntas">
       </div>
+
       </div>
         <input type="button" value="Ver preguntas" name="ver" id="ver" onclick=verPreguntas() class = "showPreguntas">
         

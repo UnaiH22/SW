@@ -29,5 +29,5 @@ $(document).ready(function()
     });
 }
 contarPreguntas();
-setInterval(function(){contarPreguntas()}, 3000);
+setInterval(function(){contarPreguntas()}, 10000);
 });
