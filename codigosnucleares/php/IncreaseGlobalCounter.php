@@ -1,8 +1,5 @@
 <?php
 session_start();
-if ($_REQUEST['addUser'] != 'true')
-    header("Location: Layout.php");
-
 if (file_exists('../xml/UserCounter.xml'))
     $xml = simplexml_load_file('../xml/UserCounter.xml');
 else
@@ -17,6 +14,8 @@ foreach($xml->xpath('user') as $us)
 {
     if ($_SESSION['user'] == $us)
         $found = true;
+    if ($us == "")
+        unset($us[0][0]);
 }
 if (!$found)
 {
