@@ -27,7 +27,7 @@
         {
             $_SESSION['user'] = $us_email;
             $_SESSION['foto'] = $usuarioDato["Foto"];
-            header("Location: IncreaseGlobalCounter.php");
+            header("Location: IncreaseGlobalCounter.php?addUser=true");
         }
     }
 ?>
