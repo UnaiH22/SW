@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION['user']))
+    header("Location: Layout.php");
+    
 if (file_exists('../xml/UserCounter.xml'))
     $xml = simplexml_load_file('../xml/UserCounter.xml');
 else
