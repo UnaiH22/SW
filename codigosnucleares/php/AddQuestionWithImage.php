@@ -121,12 +121,7 @@ if (isset($_POST['tema']) && strlen($_POST['tema']) == 0) {
           die("Error al escribir al JSON.");
 
         /*                  Response                    */
-        echo "Pregunta añadida correctamente a la BD.";
-        echo "<br>";
-        echo "Pregunta añadida correctamente al XML.";
-        echo "<br>";
-        echo "Pregunta añadida correctamente al JSON.";
-        echo "<p> <a href='ShowQuestionsWithImage.php'> Ver Preguntas </a>";
+        echo "Pregunta añadida correctamente.";
         mysqli_close($link);
       } else {
         echo( $error );

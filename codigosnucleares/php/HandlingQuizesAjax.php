@@ -14,6 +14,28 @@
  <script language=JavaScript src="../js/ShowImageInForm.js"></script>
  <script language=JavaScript src="../js/AddQuestionsAjax.js"></script>
  <script language=JavaScript src="../js/ShowQuestionsAjax.js"></script>
+ <script language=JavaScript src="../js/CountQuestions.js"></script>
+ <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
+<style>
+  .lasPreguntas
+  {
+    position: relative;
+    right: -50px;
+    top: -350px;
+    width: 200px;
+    font-family: 'Fira Mono', monospace;
+    font-weight: bold;
+    font-size: 20px;
+    border: 1px solid pink;
+  }
+
+  .showPreguntas
+  {
+    position: relative;
+    top: -30px;
+  }
+</style>
+
   <?php include '../html/Head.html'?>
 </head>
 
@@ -59,13 +81,16 @@
         <input type="button" value="Enviar" name="enviar" id="enviar">
 
       </form>
-      <div id="preguntasFeedback">
+      <div id="misPreguntas" class = "lasPreguntas">
+      </div>
+      <div id="preguntasFeedback" class = "showPreguntas">
       </div>
       </div>
-        <input type="button" value="Ver preguntas" name="ver" id="ver" onclick=verPreguntas()>
+        <input type="button" value="Ver preguntas" name="ver" id="ver" onclick=verPreguntas() class = "showPreguntas">
         
         <div id="resultado">  
       </div>
+      
   </section>
   <?php include '../html/Footer.html' ?>
 </body>
