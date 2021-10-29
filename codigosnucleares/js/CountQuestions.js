@@ -10,6 +10,9 @@ $(document).ready(function()
         dataType: 'json',
         data: {},
         cache: false,
+        beforesend:function(){
+            $('#misPreguntas').empty();
+        },
         success: function(data)
         {
             var misPreguntas = 0;
@@ -21,8 +24,6 @@ $(document).ready(function()
                     ++misPreguntas;
                 ++preguntasTotales;
             });
-
-            $('#misPreguntas').empty();
             $('#misPreguntas').html('Mis Preguntas').append("<br/>" + misPreguntas + ' / ' + preguntasTotales);
         }
     });
