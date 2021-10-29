@@ -1,31 +1,26 @@
-function isEmpty( el )
+function isEmpty( elem )
 {
-    return !$.trim(el.html())
+    return !$.trim(elem.html())
 }
 
-$(document).ready(function()
+function verPreguntas()
 {
-    $("#ver").click(function()
+    if (isEmpty($('#resultado')))
     {
-        if (isEmpty($('#resultado')))
-        {
-            var tbl = $('<table>');
-            tbl.append('<thead>').children('thead').append('<tr/>').children('tr').append('<th>Autor</th><th>Enunciado</th><th>Respuesta Correcta</th>');
-            var tbody = tbl.append('<tbody/>').children('tbody');
+        xmlhttp = new XMLHttpRequest();
 
-            $.getJSON("../json/Questions.json").done(function(data)
-            {
-                $.each(data.assessmentItems, function(i, item)
-                {
-                    tbody.append('<tr/>').children('tr:last').append("<td>"+item.author+"</td>").append("<td>"+item.itemBody.p+"</td>").append("<td>"+item.correctResponse.value+"</td>");
-                });
-                tbl.appendTo('#resultado');
-            });
-        }
-        else
+        xmlhttp.onreadystatechange = function()
         {
-            $("#resultado").empty();
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+            {
+                document.getElementById("resultado").innerHTML = xmlhttp.responseText;
+            }
         }
-    });
-});
+        
+        xmlhttp.open("GET", "../php/ShowJsonQuestions.php", true);
+        xmlhttp.send();
+    }
+    else
+        $("#resultado").empty();
+}
 

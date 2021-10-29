@@ -1,20 +1,25 @@
-function InsertarPregunta()
+$(document).ready(function()
 {
-    var output = document.getElementById("preguntasFeedback");
-    var formElement = new FormData(document.getElementById("formPreguntas"));
-
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "../php/AddQuestionWithImage.php", true);
-    xmlhttp.setRequestHeader("Content-type","x-www-form-urlencoded");
-    
-    xmlhttp.onreadystatechange = function() 
+    $("#enviar").click(function()
     {
-        if (this.readyState==4 && this.status==200)
+        let myForm = document.getElementById('formPreguntas');
+        let formData = new FormData(myForm);
+        
+        $.ajax({
+        url: '../php/AddQuestionWithImage.php',
+        type: 'POST',
+        data: formData,
+        dataType: "html",
+        contentType: false,
+        processData: false,
+        success:function(datos)
         {
-            output.innerHTML += "Pregunta insertada correctamente!<br />" + this.responseText;
-        }
-        else
-            output.innerHTML += "Error " + xmlhttp.status + ".<br />";
-    }
-    xmlhttp.send(formElement);
-}
+            $('#preguntasFeedback').fadeIn().html(datos);
+        },
+        cache : false,
+        error:function()
+        {
+            $('#preguntasFeedback').fadeIn().html('<p class="error"><strong>El servidor parece que no responde</p>');
+        }});
+    });
+});

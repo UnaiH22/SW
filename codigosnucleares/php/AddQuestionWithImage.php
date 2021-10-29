@@ -5,7 +5,6 @@ if (!isset($_SESSION['user']))
   header("Location: Layout.php");
   die();
 }
-$reg = preg_match("/^(([a-z]+[0-9]{3}@ikasle\.ehu\.(eus|es))|(([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es)))$/", $_POST['email']);
 $error = "";
 $us_email = $_SESSION['user'];
 
@@ -36,20 +35,8 @@ if (isset($_POST['tema']) && strlen($_POST['tema']) == 0) {
 
 ?>
 
-<!DOCTYPE html>
-<html>
-
-<head>
-  <?php include '../html/Head.html' ?>
-</head>
-
-<body>
-  <?php include '../php/Menus.php' ?>
-  <?php include 'DbConfig.php' ?>
-  <section class="main" id="s1">
-    <div>
-      <?php
-      if ($error == "") 
+<?php include 'DbConfig.php';
+      if ($error == "" && isset($_POST['pregunta'])) 
       {
         /*                  insert into DB                    */
         $link = mysqli_connect($server, $user, $pass, $basededatos);
@@ -144,11 +131,4 @@ if (isset($_POST['tema']) && strlen($_POST['tema']) == 0) {
       } else {
         echo( $error );
       }
-      ?>
-
-    </div>
-  </section>
-  <?php include '../html/Footer.html' ?>
-</body>
-
-</html>
+?>

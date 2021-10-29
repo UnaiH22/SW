@@ -14,13 +14,6 @@
  <script language=JavaScript src="../js/ShowImageInForm.js"></script>
  <script language=JavaScript src="../js/AddQuestionsAjax.js"></script>
  <script language=JavaScript src="../js/ShowQuestionsAjax.js"></script>
- <style>
-    .verPreguntas 
-    {
-        display: flex;
-        justify-content: center;
-    }
- </style>
   <?php include '../html/Head.html'?>
 </head>
 
@@ -63,16 +56,16 @@
         <div id="marco">
         </div>
         <br>
-        <input type="button" value="Enviar" name="enviar" id="enviar" onclick = "InsertarPregunta()">
-        <div id="preguntasFeedback">
+        <input type="button" value="Enviar" name="enviar" id="enviar">
 
-        </div>
       </form>
-    </div>
-        <input type="button" value="Ver preguntas" name="ver" id="ver">
+      <div id="preguntasFeedback">
+      </div>
+      </div>
+        <input type="button" value="Ver preguntas" name="ver" id="ver" onclick=verPreguntas()>
         
-        <div id="resultado" class="verPreguntas">  
-        </div>
+        <div id="resultado">  
+      </div>
   </section>
   <?php include '../html/Footer.html' ?>
 </body>
