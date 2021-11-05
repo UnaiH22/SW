@@ -4,10 +4,10 @@ if(isset($_SESSION['user']))
   $lafoto = $_SESSION['foto'];
   $user_email = $_SESSION['user'];
   $newUrl = 'HandlingQuizesAjax.php?email='.$user_email;
+  $regEmailProf = preg_match("/^(([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es))$/", $_SESSION['user']);
 }
 else
   $newUrl = 'QuestionFormWithImage.php';
-
 ?>
 <div id='page-wrap'>
 <header class='main' id='h1'>
@@ -20,6 +20,7 @@ else
 <nav class='main' id='n1' role='navigation'>
   <span><a href='Layout.php'>Inicio</a></span>
   <span><?php if(!isset($_SESSION['user'])) echo "<a href=$newUrl> <font color='red'>Gestionar Preguntas</font></a>"; else echo "<a href=$newUrl> Gestionar Preguntas</a>";?></span>
+  <span><?php if(isset($_SESSION['user']) && $regEmailProf)echo "<a href=HandlingVipsAjax.php> Gestionar VIPs"; ?></span>
   <span><a href='Credits.php'>Creditos</a></span>
   <span></span>
   <span><a href='SearchUser.php'>Buscar Usuario</a></span>
