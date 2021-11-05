@@ -22,7 +22,8 @@
     if (isset($_GET['vips']))
     {
         $curl = curl_init();
-        $url = "http://localhost/SW/codigosnucleares/php/vipusers/" . $_GET['vips'];
+        //$url = "http://localhost/SW/codigosnucleares/php/vipusers/" . $_GET['vips'];
+        $url = "http://sw.ikasten.io/~udelrio002/codigosnucleares/php/vipusers/" . $_GET['vips'];
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
         $str = curl_exec($curl);
