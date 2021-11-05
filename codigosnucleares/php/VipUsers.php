@@ -6,15 +6,16 @@ DEFINE("_PORT_", "8080");
 DEFINE("_USERNAME_", "root");
 DEFINE("_DATABASE_", "prueba");
 DEFINE("_PASSWORD_", "");*/
+
 DEFINE("_HOST_", "localhost");
 DEFINE("_PORT_", "8080");
 DEFINE("_USERNAME_", "G19");
 DEFINE("_DATABASE_", "db_G19");
 DEFINE("_PASSWORD_", "35VHZskBwNxae");
+
 require_once 'database.php';
 $method = $_SERVER['REQUEST_METHOD'];
 $resource = $_SERVER['REQUEST_URI'];
-
 $cnx = Database::Conectar();
 switch ($method) 
 {
@@ -95,6 +96,7 @@ switch ($method)
         $arguments = array();
         $pattern = "/vipusers\/(.+)/";
         preg_match($pattern, $resource, $matches);
+
         if (count($matches) > 0) 
 		{
             $email = $matches[1];
@@ -103,7 +105,7 @@ switch ($method)
             $result = Database::EjecutarNoConsulta($cnx, $sql);	
 
             if ($result == 0)
-                echo "No existe el email:" . $email ;
+                echo "No existe el email: " . $email ;
                 
             else 
                 echo json_encode(array('Deleted row' => $email));
