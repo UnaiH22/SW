@@ -5,6 +5,8 @@ session_start();
 <html>
 <head>
   <?php include '../html/Head.html'?>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <script language=JavaScript src="../js/LocationInfo.js"></script>
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
@@ -17,6 +19,9 @@ session_start();
       <img src='../images/avatar.png' alt="foto" height="70" width="70" />
       <img src='../images/kaladin.jpg' alt="foto2" height="100" width="70" /><br>
 
+      <div id = "location">
+
+      </div>
     </div>
   </section>
   <?php include '../html/Footer.html' ?>
