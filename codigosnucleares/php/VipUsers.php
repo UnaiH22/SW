@@ -51,7 +51,8 @@ switch ($method)
     case 'POST':
         $arguments = $_POST;
         $result = 0;
-        $email = $arguments['email'];		
+        $email = $arguments['email'];	
+
         $sql = "INSERT INTO vips (email) VALUES ('$email');";
         $num = Database::EjecutarNoConsulta($cnx, $sql);
 
@@ -63,61 +64,16 @@ switch ($method)
 
         break;
 
-    case 'PUT':
-        parse_str(file_get_contents('php://input'), $arguments);
-        $result = 0;
-        $pattern = "/vipusers\/(\d+)/";
-        preg_match($pattern, $resource, $matches);
-
-        if (count($matches) > 0) 
-        {
-            $id = intval($matches[1]);
-            $sql = "UPDATE users SET ";
-            $explodedArgs = array();
-            foreach ($arguments as $k => $v) 
-            {
-                $k = Database::Limpiar($cnx, $k);
-                $v = Database::Limpiar($cnx, $v);
-                $explodedArgs[] = "$k = '$v'";
-            }
-
-            $sql .= implode(', ', $explodedArgs);
-            $sql .= " WHERE id = $id;";
-            $result = Database::EjecutarNoConsulta($cnx, $sql);
-
-        } 
-        else
-            $result = 0;
-
-        echo json_encode(array('affectedRows' => $result));
-        break;
-
     case 'DELETE':
-        $arguments = array();
-        $pattern = "/vipusers\/(.+)/";
-        preg_match($pattern, $resource, $matches);
+        $email = $_REQUEST['id'];
+        $sql = "DELETE FROM vips WHERE email = '$email';";
+        $result = Database::EjecutarNoConsulta($cnx, $sql);	
 
-        if (count($matches) > 0) 
-		{
-            $email = $matches[1];
-			//echo $email;
-            $sql = "DELETE FROM vips WHERE email = '$email';";
-            $result = Database::EjecutarNoConsulta($cnx, $sql);	
-
-            if ($result == 0)
-                echo "No existe el email: " . $email ;
+        if ($result == 0)
+            echo "No existe el email: " . $email ;
                 
-            else 
-                echo json_encode(array('Deleted row' => $email));
-		}
+        else 
+            echo json_encode(array('Deleted row' => $email));
 	break;
 }
 Database::Desconectar($cnx);
-
-// } catch (Exception $ex) {
-     // header('HTTP/1.0 400 Bad Request');
-// }
-//echo json_encode($response, true); // $response será un array con los datos de nuestra respuesta.
-// echo '<p>';
-// echo json_encode(array('method' => $method, 'arguments' => $arguments, 'uri' => $resource), true);
-// $response será un array con los datos de nuestra respuesta.
