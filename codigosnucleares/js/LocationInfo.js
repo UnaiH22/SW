@@ -1,16 +1,27 @@
 $(document).ready(function()
 {
-    $.getJSON('http://ip-api.com/json', function(data) 
+    let ip = '0';
+    $.getJSON("https://api.ipify.org/?format=json", function(e) 
     {
-        let locationData = JSON.parse(JSON.stringify(data));
-        $('#location').append("<br><strong> País: " + locationData.country + "<br>" + "Región: " + locationData.regionName + "<br>" + 
-        "Ciudad: " + locationData.city + "<br>" + "ISP: " + locationData.as + "<br>" + "IP: " +locationData.query);
-    });
-});
+        ip = e.ip;
+        var link = 'https://ipapi.co/' + ip + '/json/';
+        $.getJSON(link, function(data)
+        {
+            let locationData = JSON.parse(JSON.stringify(data));
+            $('#location').append("<br><strong> País: " + locationData.country_name + "<br>" + "Región: " + locationData.region + "<br>" + 
+            "Ciudad: " + locationData.city + "<br>" + "ISP: " + locationData.org + "<br>" + "IP: " + locationData.ip + "<br>" + "LAT/LON: (" + 
+            locationData.latitude + ", " + locationData.longitude + ")");
 
-/*$(document).ready(function()
-{
-    $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
-        console.log(JSON.stringify(data, null, 2));
-      });
-});*/
+            const localizacion = { lat: locationData.latitude, lng: locationData.longitude };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 7,
+                center: localizacion,
+            });
+
+            const marker = new google.maps.Marker({
+                position: localizacion,
+                map: map,
+            });
+        })
+    })
+});
