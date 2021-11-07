@@ -9,14 +9,13 @@
         $data = array('email' => $_POST['vips']);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         $output = curl_exec($ch);
+        $respuesta = json_decode($output, true);
 
-        if ($output == "Ya es VIP.")
+        if ($respuesta["Creado VIP"] == "error")
             echo "<font color='red'>El usuario introducido ya es VIP.</font>";
         else
-        {
-            $obj = json_decode($output, true);
-            echo '¡El usuario ' . '<strong>' . $obj["Creado VIP"] . '</strong> ha sido añadido como VIP!<br/> <img src = ../images/añadido.gif height = 220px width = 400px>';
-        }
+            echo '¡El usuario ' . '<strong>' . $respuesta["Creado VIP"] . '</strong> ha sido añadido como VIP!<br/> <img src = ../images/añadido.gif height = 220px width = 400px>';
+
         curl_close($ch);
     }
 ?>

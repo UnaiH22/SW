@@ -57,7 +57,7 @@ switch ($method)
         $num = Database::EjecutarNoConsulta($cnx, $sql);
 
 		if ($num==0)
-            echo "Ya es VIP.";
+            echo json_encode(array('Creado VIP' => "error"));
         else 
             echo json_encode(array('Creado VIP' => $email));
 
@@ -69,10 +69,10 @@ switch ($method)
         $result = Database::EjecutarNoConsulta($cnx, $sql);	
 
         if ($result == 0)
-            echo "No existe el email: " . $email ;
+            echo json_encode(array('VIP eliminado' => "error"));
                 
         else 
-            echo json_encode(array('Deleted row' => $email));
+            echo json_encode(array('VIP eliminado' => $email));
 	break;
 }
 Database::Desconectar($cnx);
