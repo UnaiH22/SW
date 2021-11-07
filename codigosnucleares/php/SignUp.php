@@ -1,5 +1,6 @@
 <?php include 'DbConfig.php' ?>
 <?php
+    require_once 'ClientVerifyEnrollment.php';
     session_start();
     if (isset($_SESSION['user']))
     {
@@ -27,6 +28,7 @@
         $cont= mysqli_num_rows($usuarios);
         mysqli_close( $link);
 
+        $matriculado = verificarMatricula($us_email);
 
         if ($us_tipo == "Estudiante" && !$regEmailStud || $us_tipo == "Profesor" && !$regEmailProf)
         {
@@ -36,6 +38,11 @@
         if($cont > 0)
         {
             $error_email .= "El email está en uso.";
+        }
+
+        if ($matriculado == "NO")
+        {
+          $error_email .= "Este correo no esta matriculado.";
         }
 
         if (!$regNombre)
@@ -48,7 +55,7 @@
             $error_pw = "La contraseña debe tener al menos 8 caracteres y las contraseñas tienen que coincidir.";
         }
 
-        if ($error_email == "" && $error_nom == "" && $error_pw == "")
+        if ($error_email == "" && $error_nom == "" && $error_pw == "" && $matriculado == "SI")
         {
             $link = mysqli_connect($server, $user, $pass, $basededatos);
 
@@ -67,7 +74,6 @@
               else 
               {
                 $default_images = array("brainlet1.jpg", "brainlet2.jpg", "brainlet3.jpg", "brainlet4.jpg", "brainlet5.jpg", "brainlet6.jpg", "brainlet7.jpg", "brainlet8.jpg", "brainlet9.jpg", "brainlet10.jpg");
-                $random_img = rand(0,9);
                 $image = $default_images[rand(0,9)];
               }
               $sql = "INSERT INTO Usuarios(Tipo, Email, Nombre, Contraseña, Foto) VALUES ('$us_tipo','$us_email','$us_nombre','$us_pw','$image')";
@@ -76,7 +82,7 @@
               }
               echo "Registrado correctamente.";
               mysqli_close($link);
-            header("Location: LogIn.php");
+              header("Location: LogIn.php");
         }
         echo($error);
     }
