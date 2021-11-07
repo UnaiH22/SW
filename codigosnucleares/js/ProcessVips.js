@@ -14,7 +14,7 @@ $(document).ready(function()
         let formData = new FormData(myForm);
 
         $.ajax({
-        url: '../php/IsVipAjax.php',
+        url: '../php/IsVip.php',
         type: 'POST',
         data: formData,
         dataType: "html",
@@ -44,7 +44,7 @@ $(document).ready(function()
         let formData = new FormData(myForm);
 
         $.ajax({
-            url: '../php/AddVipAjax.php',
+            url: '../php/AddVip.php',
             type: 'POST',
             data: formData,
             dataType: "html",
@@ -65,7 +65,7 @@ $(document).ready(function()
     $("#listaVIPs").click(function()
     { 
         $.ajax({
-            url: '../php/ShowVipsAjax.php',
+            url: '../php/ShowVips.php',
             type: 'GET',
             dataType: "html",
             success:function(datos)
@@ -94,7 +94,7 @@ $(document).ready(function()
         let formData = new FormData(myForm);
 
         $.ajax({
-            url: '../php/DeleteVipAjax.php',
+            url: '../php/DeleteVip.php',
             type: 'POST',
             data: formData,
             dataType: "html",
