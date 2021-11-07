@@ -6,7 +6,7 @@ $(document).ready(function()
         if ($.trim($('#vips').val()) == "")
         {
             $('#procesarVip').empty();
-            $('#procesarVip').append("Introduce un email.");
+            $('#procesarVip').append("<font color='red'>Introduce un email.</font>");
             return false;
         }
 
@@ -36,7 +36,7 @@ $(document).ready(function()
         if ($.trim($('#vips').val()) == "")
         {
             $('#procesarVip').empty();
-            $('#procesarVip').append("Introduce un email.");
+            $('#procesarVip').append("<font color='red'>Introduce un email.</font>");
             return false;
         }
 
@@ -86,7 +86,7 @@ $(document).ready(function()
         if ($.trim($('#vips').val()) == "")
         {
             $('#procesarVip').empty();
-            $('#procesarVip').append("Introduce un email.");
+            $('#procesarVip').append("<font color='red'>Introduce un email.</font>");
             return false;
         }
 

@@ -1,17 +1,17 @@
 <?php
 // Constantes para el acceso a datos...
 //phpinfo();
-/*DEFINE("_HOST_", "localhost");
+DEFINE("_HOST_", "localhost");
 DEFINE("_PORT_", "8080");
 DEFINE("_USERNAME_", "root");
 DEFINE("_DATABASE_", "prueba");
-DEFINE("_PASSWORD_", "");*/
+DEFINE("_PASSWORD_", "");
 
-DEFINE("_HOST_", "localhost");
+/*DEFINE("_HOST_", "localhost");
 DEFINE("_PORT_", "8080");
 DEFINE("_USERNAME_", "G19");
 DEFINE("_DATABASE_", "db_G19");
-DEFINE("_PASSWORD_", "35VHZskBwNxae");
+DEFINE("_PASSWORD_", "35VHZskBwNxae");*/
 
 require_once 'database.php';
 $method = $_SERVER['REQUEST_METHOD'];
@@ -29,12 +29,12 @@ switch ($method)
 
             if (isset($data[0]))
             {
-                echo "<br><br><b>ENHORABUENA ".$id." ES VIP</b><br><img src=../images/ok.gif height = 220px width = 400px>";
+                echo "<b>ENHORABUENA ".$id." ES VIP</b><br><img src=../images/ok.gif height = 220px width = 400px>";
                 break;
             }
             else 
             {
-                echo "<br><br><b>LO SIENTO ".$id." NO ES VIP</b><br><img src=../images/wrong.gif height = 220px width = 400px>";
+                echo "<b>LO SIENTO ".$id." NO ES VIP</b><br><img src=../images/wrong.gif height = 220px width = 400px>";
                 break;
             }
 		}
@@ -57,8 +57,7 @@ switch ($method)
         $num = Database::EjecutarNoConsulta($cnx, $sql);
 
 		if ($num==0)
-            echo json_encode(array('Ya es VIP' => $email));
-
+            echo "Ya es VIP.";
         else 
             echo json_encode(array('Creado VIP' => $email));
 
