@@ -14,6 +14,7 @@ DEFINE("_DATABASE_", "db_G19");
 DEFINE("_PASSWORD_", "35VHZskBwNxae");
 
 require_once 'database.php';
+require_once 'ClientVerifyEnrollment.php';
 $method = $_SERVER['REQUEST_METHOD'];
 $resource = $_SERVER['REQUEST_URI'];
 $cnx = Database::Conectar();
@@ -53,6 +54,13 @@ switch ($method)
         $result = 0;
         $email = $arguments['email'];	
 
+        $matriculado = verificarMatricula($email);
+        if ($matriculado == "NO")
+        {
+            echo json_encode(array('Creado VIP' => "errorMatricula"));
+            break;
+        }
+
         $sql = "INSERT INTO vips (email) VALUES ('$email');";
         $num = Database::EjecutarNoConsulta($cnx, $sql);
 
@@ -60,7 +68,6 @@ switch ($method)
             echo json_encode(array('Creado VIP' => "error"));
         else 
             echo json_encode(array('Creado VIP' => $email));
-
         break;
 
     case 'DELETE':

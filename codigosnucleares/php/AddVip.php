@@ -13,6 +13,8 @@
 
         if ($respuesta["Creado VIP"] == "error")
             echo "<font color='red'>El usuario introducido ya es VIP.</font>";
+        else if ($respuesta["Creado VIP"] == "errorMatricula")
+            echo "<font color='red'>El usuario no está matriculado.</font>";
         else
             echo '¡El usuario ' . '<strong>' . $respuesta["Creado VIP"] . '</strong> ha sido añadido como VIP!<br/> <img src = ../images/añadido.gif height = 220px width = 400px>';
 
