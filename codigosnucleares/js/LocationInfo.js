@@ -23,17 +23,7 @@ $(document).ready(function ()
                         "Ciudad: " + data.city + "<br>" + "ISP: " + data.org + "<br>" + "IP: " + data.ip + "<br>" + "LAT/LON: (" +
                         data.loc + ")");
 
-                    var coords = data.loc.split(",");
-                    const localizacion = { lat: parseInt(coords[0]), lng: parseInt(coords[1])  };
-                    const map = new google.maps.Map(document.getElementById("map"), {
-                        zoom: 7,
-                        center: localizacion,
-                    });
-
-                    const marker = new google.maps.Marker({
-                        position: localizacion,
-                        map: map,
-                    });
+                    navigator.geolocation.getCurrentPosition(mapa);
                 });
             }
             else{
@@ -41,5 +31,19 @@ $(document).ready(function ()
             }
         }
     }
-    detectAdBlock()
+    detectAdBlock();
 });
+
+function mapa(pos)
+{
+    const localizacion = { lat: pos.coords.latitude, lng: pos.coords.longitude  };
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 7,
+        center: localizacion,
+    });
+
+    const marker = new google.maps.Marker({
+        position: localizacion,
+        map: map,
+    });
+}
