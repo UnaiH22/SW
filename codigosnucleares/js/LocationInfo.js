@@ -50,7 +50,7 @@ $(document).ready(function () {
                             data.loc + ")");
 
                         var coords = data.loc.split(",");
-                        const localizacion = { lat: coords[0], lng: coords[1] };
+                        const localizacion = { lat: parseInt(coords[0]), lng: parseInt(coords[1])  };
                         const map = new google.maps.Map(document.getElementById("map"), {
                             zoom: 7,
                             center: localizacion,

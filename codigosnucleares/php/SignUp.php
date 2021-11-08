@@ -29,7 +29,7 @@
         mysqli_close( $link);
 
         $matriculado = verificarMatricula($us_email);
-
+        
         if ($us_tipo == "Estudiante" && !$regEmailStud || $us_tipo == "Profesor" && !$regEmailProf)
         {
             $error_email = "Email no válido.";

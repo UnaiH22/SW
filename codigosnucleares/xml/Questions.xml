@@ -45,4 +45,121 @@
       <response>wuooo pooo</response>
     </incorrectResponses>
   </assessmentItem>
+  <assessmentItem subject="unggg" author="preparetofacethemighty@ehu.es">
+    <itemBody>
+      <p>taaaaz dingooo</p>
+    </itemBody>
+    <correctResponse>
+      <response>turururuuru</response>
+    </correctResponse>
+    <incorrectResponses>
+      <response>anabeloooore</response>
+      <response>nature will rise against you!</response>
+      <response>hm well played</response>
+    </incorrectResponses>
+  </assessmentItem>
+  <assessmentItem subject="ruidos hc" author="nombre222@ikasle.ehu.eus">
+    <itemBody>
+      <p>izokuuu baaa</p>
+    </itemBody>
+    <correctResponse>
+      <response>bariko</response>
+    </correctResponse>
+    <incorrectResponses>
+      <response>haa konkariate</response>
+      <response>pipiiiiiii</response>
+      <response>nyanyanyanyannynanna</response>
+    </incorrectResponses>
+  </assessmentItem>
+  <assessmentItem subject="monke" author="nombre222@ikasle.ehu.eus">
+    <itemBody>
+      <p>monke monke?</p>
+    </itemBody>
+    <correctResponse>
+      <response>monke</response>
+    </correctResponse>
+    <incorrectResponses>
+      <response>monke</response>
+      <response>monke</response>
+      <response>monke</response>
+    </incorrectResponses>
+  </assessmentItem>
+  <assessmentItem subject="monke" author="nombre222@ikasle.ehu.eus">
+    <itemBody>
+      <p>monke monke?</p>
+    </itemBody>
+    <correctResponse>
+      <response>monke</response>
+    </correctResponse>
+    <incorrectResponses>
+      <response>monke</response>
+      <response>monke</response>
+      <response>monke</response>
+    </incorrectResponses>
+  </assessmentItem>
+  <assessmentItem subject="t" author="nombre222@ikasle.ehu.eus">
+    <itemBody>
+      <p>pa probar prueba que voy a probar</p>
+    </itemBody>
+    <correctResponse>
+      <response>la prueba</response>
+    </correctResponse>
+    <incorrectResponses>
+      <response>el pruebo</response>
+      <response>le pruebe</response>
+      <response>les gallines</response>
+    </incorrectResponses>
+  </assessmentItem>
+  <assessmentItem subject="Miau" author="miaumiau003@ikasle.ehu.eus">
+    <itemBody>
+      <p>miau miau marramiau</p>
+    </itemBody>
+    <correctResponse>
+      <response>marramiau miau miau</response>
+    </correctResponse>
+    <incorrectResponses>
+      <response>miau miau</response>
+      <response>miau marramiau</response>
+      <response>miau miau miau miau</response>
+    </incorrectResponses>
+  </assessmentItem>
+  <assessmentItem subject="ssssssssssss" author="jobs@ehu.es">
+    <itemBody>
+      <p>dassssssssssssssssssssss</p>
+    </itemBody>
+    <correctResponse>
+      <response>ssssssssssssssssss</response>
+    </correctResponse>
+    <incorrectResponses>
+      <response>sssssssssssssssss</response>
+      <response>sssssssssssssssss</response>
+      <response>ssssssssssssssssss</response>
+    </incorrectResponses>
+  </assessmentItem>
+  <assessmentItem subject="aaaaaaaaaaaaaa" author="vadillo@ehu.eus">
+    <itemBody>
+      <p>aaaaaaaaaaaaaaaaaaaa</p>
+    </itemBody>
+    <correctResponse>
+      <response>aaaaaaaaaaaaaaaaaa</response>
+    </correctResponse>
+    <incorrectResponses>
+      <response>aaaaaaaaaaaaaaa</response>
+      <response>aaaaaaaaaaaaaaaaa</response>
+      <response>aaaaaaaaaaaaaaaaaaaaaaaaaaaa</response>
+    </incorrectResponses>
+  </assessmentItem>
+  <assessmentItem subject="bebegruagrua" author="preparetofacethemighty@ehu.es">
+    <itemBody>
+      <p>que ruido hace fuaban fuaban?</p>
+    </itemBody>
+    <correctResponse>
+      <response>killing spree</response>
+    </correctResponse>
+    <incorrectResponses>
+      <response>ceguera</response>
+      <response>bomba de humo</response>
+      <response>porrazo</response>
+    </incorrectResponses>
+  </assessmentItem>
 </assessmentItems>

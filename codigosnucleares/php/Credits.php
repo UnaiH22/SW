@@ -6,8 +6,7 @@ session_start();
 <head>
   <?php include '../html/Head.html'?>
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script> <!-- google maps sin llave (se ve un poco oscuro) -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=" async defer></script> <!-- google maps sin llave (se ve un poco oscuro) -->
   <script language=JavaScript src="../js/LocationInfo.js"></script>
   <style type="text/css">
       #map 
