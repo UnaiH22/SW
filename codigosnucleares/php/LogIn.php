@@ -25,8 +25,14 @@
 
         if ($error == "")
         {
+            $link = mysqli_connect($server, $user, $pass, $basededatos);
+            $tipo_user = mysqli_query($link,"select Tipo from Usuarios where Email ='$us_email'");
+            $row = mysqli_fetch_row($tipo_user);
+            $type = $row[0];
+            mysqli_close( $link);
             $_SESSION['user'] = $us_email;
             $_SESSION['foto'] = $usuarioDato["Foto"];
+            $_SESSION['rol'] = $type;
             header("Location: IncreaseGlobalCounter.php?addUser=true");
         }
     }

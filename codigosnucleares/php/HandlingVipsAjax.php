@@ -5,8 +5,7 @@ if (!isset($_SESSION['user']))
     header("Location: Layout.php");
     die();
 }
-$regEmailProf = preg_match("/^(([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es))$/", $_SESSION['user']);
-if (!$regEmailProf)
+if (isset($_SESSION['rol']) && $_SESSION['rol'] != "Profesor")
 {
     header("Location: Layout.php");
     die();
