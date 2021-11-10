@@ -14,7 +14,7 @@ DEFINE("_DATABASE_", "db_G19");
 DEFINE("_PASSWORD_", "35VHZskBwNxae");
 
 require_once 'database.php';
-require_once 'ClientVerifyEnrollment.php';
+require_once '../codigosnucleares/php/ClientVerifyEnrollment.php';
 $method = $_SERVER['REQUEST_METHOD'];
 $resource = $_SERVER['REQUEST_URI'];
 $cnx = Database::Conectar();
@@ -30,12 +30,12 @@ switch ($method)
 
             if (isset($data[0]))
             {
-                echo "<b>ENHORABUENA ".$id." ES VIP</b><br><img src=../images/ok.gif height = 220px width = 400px>";
+                echo "<b>ENHORABUENA ".$id." ES VIP</b><br><img src=../codigosnucleares/images/ok.gif height = 220px width = 400px>";
                 break;
             }
             else 
             {
-                echo "<b>LO SIENTO ".$id." NO ES VIP</b><br><img src=../images/wrong.gif height = 220px width = 400px>";
+                echo "<b>LO SIENTO ".$id." NO ES VIP</b><br><img src=../codigosnucleares/images/wrong.gif height = 220px width = 400px>";
                 break;
             }
 		}
