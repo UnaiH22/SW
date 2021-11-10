@@ -30,12 +30,12 @@ switch ($method)
 
             if (isset($data[0]))
             {
-                echo "<b>ENHORABUENA ".$id." ES VIP</b><br><img src=../codigosnucleares/images/ok.gif height = 220px width = 400px>";
+                echo "<b>ENHORABUENA ".$id." ES VIP</b><br><img src=../images/ok.gif height = 220px width = 400px>";
                 break;
             }
             else 
             {
-                echo "<b>LO SIENTO ".$id." NO ES VIP</b><br><img src=../codigosnucleares/images/wrong.gif height = 220px width = 400px>";
+                echo "<b>LO SIENTO ".$id." NO ES VIP</b><br><img src=../images/wrong.gif height = 220px width = 400px>";
                 break;
             }
 		}
