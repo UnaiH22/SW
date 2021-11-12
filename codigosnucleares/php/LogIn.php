@@ -14,7 +14,8 @@
 
         $link = mysqli_connect($server, $user, $pass, $basededatos);
         $us_pw_limpia = mysqli_real_escape_string($link, $us_pw);
-        $usuarios = mysqli_query($link,"select * from Usuarios where Email ='$us_email' and Contraseña = '$us_pw_limpia'");
+        $us_email_limpia = mysqli_real_escape_string($link, $us_email);
+        $usuarios = mysqli_query($link,"select * from Usuarios where Email ='$us_email_limpia' and Contraseña = '$us_pw_limpia'");
         $usuarioDato = $usuarios->fetch_assoc();
         $cont= mysqli_num_rows($usuarios);
         mysqli_close( $link);
@@ -22,14 +23,14 @@
         if($cont == 0)
         {
             $error = "Datos incorrectos.";
-            if ($us_pw_limpia != $us_pw)
+            if ($us_pw_limpia != $us_pw || $us_email_limpia != $us_email)
               $error2 = "";
         }
 
         if ($error == "")
         {
             $link = mysqli_connect($server, $user, $pass, $basededatos);
-            $tipo_user = mysqli_query($link,"select Tipo from Usuarios where Email ='$us_email'");
+            $tipo_user = mysqli_query($link,"select Tipo from Usuarios where Email ='$us_email_limpia'");
             $row = mysqli_fetch_row($tipo_user);
             $type = $row[0];
             mysqli_close( $link);
