@@ -13,7 +13,8 @@
         $us_pw = trim($_POST['passwordUser']);
 
         $link = mysqli_connect($server, $user, $pass, $basededatos);
-        $usuarios = mysqli_query($link,"select * from Usuarios where Email ='$us_email' and Contraseña = '$us_pw'");
+        $us_pw_limpia = mysqli_real_escape_string($link, $us_pw);
+        $usuarios = mysqli_query($link,"select * from Usuarios where Email ='$us_email' and Contraseña = '$us_pw_limpia'");
         $usuarioDato = $usuarios->fetch_assoc();
         $cont= mysqli_num_rows($usuarios);
         mysqli_close( $link);
@@ -21,6 +22,8 @@
         if($cont == 0)
         {
             $error = "Datos incorrectos.";
+            if ($us_pw_limpia != $us_pw)
+              $error2 = "";
         }
 
         if ($error == "")
@@ -65,6 +68,7 @@
       </div>
 
       <input type="submit" value="Enviar" name="enviar" id="enviar">
+      <?php if (isset($error2)) echo '<br/> <img src = ../images/notpass.gif height = 220px width = 400px>'; ?>
     </form>
       
     </div>
