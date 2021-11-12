@@ -76,7 +76,8 @@
                 $default_images = array("brainlet1.jpg", "brainlet2.jpg", "brainlet3.jpg", "brainlet4.jpg", "brainlet5.jpg", "brainlet6.jpg", "brainlet7.jpg", "brainlet8.jpg", "brainlet9.jpg", "brainlet10.jpg");
                 $image = $default_images[rand(0,9)];
               }
-              $sql = "INSERT INTO Usuarios(Tipo, Email, Nombre, Contraseña, Foto) VALUES ('$us_tipo','$us_email','$us_nombre','$us_pw','$image')";
+              $encrypted_pw = md5($us_pw);
+              $sql = "INSERT INTO Usuarios(Tipo, Email, Nombre, Contraseña, Foto) VALUES ('$us_tipo','$us_email','$us_nombre','$encrypted_pw','$image')";
               if (!mysqli_query($link, $sql)) {
                 die('Error en la query: ' . mysqli_error($link));
               }

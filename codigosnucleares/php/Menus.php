@@ -18,8 +18,8 @@ else
 </header>
 <nav class='main' id='n1' role='navigation'>
   <span><a href='Layout.php'>Inicio</a></span>
-  <span><?php if(!isset($_SESSION['user'])) echo "<a href=$newUrl> <font color='red'>Gestionar Preguntas</font></a>"; else echo "<a href=$newUrl> Gestionar Preguntas</a>";?></span>
-  <span><?php if(isset($_SESSION['user']) && $_SESSION['rol'] == "Profesor")echo "<a href=HandlingVipsAjax.php> Gestionar VIPs"; ?></span>
+  <span><?php if(!isset($_SESSION['user'])) echo "<a href=$newUrl> <font color='red'>Gestionar Preguntas</font></a>"; else if($_SESSION['rol'] != "Admin") echo "<a href=$newUrl> Gestionar Preguntas</a>";else if($_SESSION['rol'] == "Admin") echo "<a href=HandlingAccounts.php> Gestionar Cuentas</a>";?></span>
+  <span><?php if(isset($_SESSION['user']) && $_SESSION['rol'] == "Profesor") echo "<a href=HandlingVipsAjax.php> Gestionar VIPs"; ?></span>
   <span><a href='Credits.php'>Creditos</a></span>
   <span></span>
   <span><a href='SearchUser.php'>Buscar Usuario</a></span>

@@ -15,7 +15,9 @@
         $link = mysqli_connect($server, $user, $pass, $basededatos);
         $us_pw_limpia = mysqli_real_escape_string($link, $us_pw);
         $us_email_limpia = mysqli_real_escape_string($link, $us_email);
-        $usuarios = mysqli_query($link,"select * from Usuarios where Email ='$us_email_limpia' and Contraseña = '$us_pw_limpia'");
+        $pw_encrypted = md5($us_pw_limpia);
+        
+        $usuarios = mysqli_query($link,"select * from Usuarios where Email ='$us_email_limpia' and Contraseña = '$pw_encrypted'");
         $usuarioDato = $usuarios->fetch_assoc();
         $cont= mysqli_num_rows($usuarios);
         mysqli_close( $link);
@@ -26,9 +28,13 @@
             if ($us_pw_limpia != $us_pw || $us_email_limpia != $us_email)
               $error2 = "";
         }
-
+        else
+          $estado_usuario = $usuarioDato['Estado'];
+       
         if ($error == "")
         {
+          if ($estado_usuario == "Activo")
+          {
             $link = mysqli_connect($server, $user, $pass, $basededatos);
             $tipo_user = mysqli_query($link,"select Tipo from Usuarios where Email ='$us_email_limpia'");
             $row = mysqli_fetch_row($tipo_user);
@@ -38,6 +44,9 @@
             $_SESSION['foto'] = $usuarioDato["Foto"];
             $_SESSION['rol'] = $type;
             header("Location: IncreaseGlobalCounter.php?addUser=true");
+          }
+          else
+            $error .= "Estas Baneado.";
         }
     }
 ?>
@@ -67,7 +76,7 @@
           echo "<font color='red'>".$error."</font>";
       } ?>
       </div>
-
+      
       <input type="submit" value="Enviar" name="enviar" id="enviar">
       <?php if (isset($error2)) echo '<br/> <img src = ../images/notpass.gif height = 220px width = 400px>'; ?>
     </form>

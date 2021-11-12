@@ -5,6 +5,11 @@
     header("Location: LogIn.php");
     die();
   }
+  if (isset($_SESSION['user']) && $_SESSION['rol'] == "Admin")
+  {
+    header("Location: LogIn.php");
+    die();
+  }
 ?>
 <!DOCTYPE html>
 <html>
