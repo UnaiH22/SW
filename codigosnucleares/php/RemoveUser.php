@@ -8,7 +8,7 @@
         $tipo = mysqli_fetch_row($usuarios)[0];
         if ($tipo != "Admin")
         {
-            if (!mysqli_query($link,"delete from usuarios where Email = '$usr'"))
+            if (!mysqli_query($link,"delete from Usuarios where Email = '$usr'"))
                 echo '<p style="color:red;">Ha habido un error.</p>';
             else
                 echo 'El usuario <strong>' . $usr . '</strong> ha sido <span style="color:red;">Eliminado</span> correctamente.';
