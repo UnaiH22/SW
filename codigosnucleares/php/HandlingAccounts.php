@@ -31,8 +31,9 @@ if (isset($_SESSION['user']) && $_SESSION['rol'] != "Admin")
     .tablas
     {
       position:relative;
-      right: -250px;
+      right: -550px;
       top: -100px;
+      width: 200px;
     }
   </style>
   <?php include '../html/Head.html'?>
