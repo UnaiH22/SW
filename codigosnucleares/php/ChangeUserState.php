@@ -11,12 +11,12 @@
         if ($tipo != 'Admin')
         {
             if ($estado == 'Baneado')
-                if (!mysqli_query($link,"update usuarios set Estado = 'Activo' where Email ='$usr'"))
+                if (!mysqli_query($link,"update Usuarios set Estado = 'Activo' where Email ='$usr'"))
                     echo '<p style="color:red;">Ha habido un error.</p>';
                 else
                     echo 'El usuario <strong>' . $usr . '</strong> ha sido <span style="color:green;">Unbaneado</span> correctamente.';
             else
-                if (!mysqli_query($link,"update usuarios set Estado = 'Baneado' where Email ='$usr'"))
+                if (!mysqli_query($link,"update Usuarios set Estado = 'Baneado' where Email ='$usr'"))
                     echo '<p style="color:red;">Ha habido un error.</p>';
                 else
                     echo 'El usuario <strong>' . $usr . '</strong> ha sido <span style="color:red;">Baneado</span> correctamente.';
