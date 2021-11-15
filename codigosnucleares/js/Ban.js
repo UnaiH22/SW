@@ -29,7 +29,29 @@ $(document).ready(function()
                 cache : false,
                 success:function(datos)
                 {
-                    $('#res').fadeIn().html(datos);
+                    if (datos.startsWith("¡"))
+                    {
+                        var icon = 'success';
+                        var heading = 'Cambio con éxito';
+                    }
+                    else
+                    {
+                        var icon = 'error';
+                        var heading = 'Error';
+                    }
+                    $.toast({
+                        heading: heading,
+                        text: datos,
+                        showHideTransition: 'fade',
+                        hideAfter: 3000,
+                        icon: icon,
+                        position: {
+                            left: 565,
+                            top: 430
+                        },
+                        loader: false,
+                        stack: false
+                    })
                 }
             });
         }
@@ -48,7 +70,29 @@ $(document).ready(function()
                 cache : false,
                 success:function(datos)
                 {
-                    $('#res').fadeIn().html(datos);
+                    if (datos.startsWith("¡"))
+                    {
+                        var icon = 'success';
+                        var heading = 'Eliminado con éxito';
+                    }
+                    else
+                    {
+                        var icon = 'error';
+                        var heading = 'Error';
+                    }
+                    $.toast({
+                        heading: heading,
+                        text: datos,
+                        showHideTransition: 'fade',
+                        hideAfter: 3000,
+                        icon: icon,
+                        position: {
+                            left: 565,
+                            top: 430
+                        },
+                        loader: false,
+                        stack: false
+                    })
                 }
             });
         }

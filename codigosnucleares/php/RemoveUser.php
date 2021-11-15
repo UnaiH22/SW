@@ -9,14 +9,14 @@
         if ($tipo != "Admin")
         {
             if (!mysqli_query($link,"delete from Usuarios where Email = '$usr'"))
-                echo '<p style="color:red;">Ha habido un error.</p>';
+                echo 'Ha habido un error.';
             else
-                echo 'El usuario <strong>' . $usr . '</strong> ha sido <span style="color:red;">Eliminado</span> correctamente.';
+                echo '¡El usuario <strong>' . $usr . '</strong> ha sido <span style="color:red;">Eliminado</span> correctamente!';
         }
         else
-            echo '<p style="color:red;">¡No te puedes eliminar a ti mismo!</p>';
+            echo 'No te puedes eliminar a ti mismo';
     }
     else
-        echo '<p style="color:red;">Usuario no encontrado.</p>';
+        echo 'Usuario no encontrado.';
     mysqli_close($link);
 ?>
