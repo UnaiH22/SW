@@ -19,32 +19,38 @@ $(document).ready(function()
 
     $("#ban").click(function()
     {
-        $.ajax
-        ({
-            url: '../php/ChangeUserState.php?usr=' + $('#usuario_modificado').val(),
-            type: 'POST',
-            dataType: "html",
-            cache : false,
-            success:function(datos)
-            {
-                $('#res').fadeIn().html(datos);
-            }
-        });
+        if (confirm('¿Seguro que quieres banear a ' + $('#usuario_modificado').val() + '?')) 
+        {
+            $.ajax
+            ({
+                url: '../php/ChangeUserState.php?usr=' + $('#usuario_modificado').val(),
+                type: 'POST',
+                dataType: "html",
+                cache : false,
+                success:function(datos)
+                {
+                    $('#res').fadeIn().html(datos);
+                }
+            });
+        }
         
     });
 
     $("#delete").click(function()
     {
-        $.ajax
-        ({
-            url: '../php/RemoveUser.php?usr=' + $('#usuario_modificado').val(),
-            type: 'POST',
-            dataType: "html",
-            cache : false,
-            success:function(datos)
-            {
-                $('#res').fadeIn().html(datos);
-            }
-        });
+        if (confirm('¿Seguro que quieres eliminar a ' + $('#usuario_modificado').val() + '?')) 
+        {
+            $.ajax
+            ({
+                url: '../php/RemoveUser.php?usr=' + $('#usuario_modificado').val(),
+                type: 'POST',
+                dataType: "html",
+                cache : false,
+                success:function(datos)
+                {
+                    $('#res').fadeIn().html(datos);
+                }
+            });
+        }
     });
 });
