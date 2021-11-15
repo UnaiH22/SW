@@ -42,12 +42,15 @@ if (isset($_SESSION['user']) && $_SESSION['rol'] != "Admin")
     <div>
     <h1 style="font-size:300%;font-family:courier;background-color:lightblue;"></h1><br>
       <form id="accounts" name="accounts" method="POST" enctype="multipart/form-data">
-      <div id = "usrs" class = "tablas"></div>
-      <div class = elform>
-        <input type=text style = "width: 250px" id=usuario_modificado><br/><br/>
-        <input type=button value=Ban id=ban>
-        <input type=button value=Eliminar id=delete>
-        <div id = res></div>
+      <div>   
+        <div class = elform>
+          <input type=text style = "width: 250px" id=usuario_modificado><br/><br/>
+          <input type=button value=Ban id=ban>
+          <input type=button value=Eliminar id=delete>
+          <div id = res></div>
+        </div>
+        <div id = "usrs" class = "tablas">
+        </div>
       </div>
       </form>
     </div>
