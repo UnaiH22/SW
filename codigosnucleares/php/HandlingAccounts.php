@@ -23,27 +23,30 @@ if (isset($_SESSION['user']) && $_SESSION['rol'] != "Admin")
   <style>
     .elform
     {
-      position: relative;
-      top: -120px;
-      right: -100px;
+      position: fixed;
+      top: 260px;
+      right: 880px;
       width: 400px;
     }
     .tablas
     {
-      position:relative;
-      right: -130px;
+      position:fixed;
+      right: 270px;
+      top: 230px;
     }
   </style>
   <?php include '../html/Head.html'?>
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
+  
   <section class="main" id="s1">
     <div>
-    <h1 style="font-size:300%;font-family:courier;background-color:lightblue;"></h1><br>
+    <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">Gestion de Cuentas</h1><br>  
       <form id="accounts" name="accounts" method="POST" enctype="multipart/form-data">
       <div>   
         <div class = elform>
+          Usuario a Gestionar <br/>
           <input type=text style = "width: 250px" id=usuario_modificado><br/><br/>
           <input type=button value=Ban id=ban>
           <input type=button value=Eliminar id=delete>
