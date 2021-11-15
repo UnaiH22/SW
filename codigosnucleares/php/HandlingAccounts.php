@@ -31,7 +31,7 @@ if (isset($_SESSION['user']) && $_SESSION['rol'] != "Admin")
     .tablas
     {
       position:fixed;
-      right: 270px;
+      right: 80px;
       top: 230px;
     }
   </style>
