@@ -23,16 +23,16 @@ if (isset($_SESSION['user']) && $_SESSION['rol'] != "Admin")
   <style>
     .elform
     {
-      position: fixed;
-      top: 260px;
-      right: 880px;
+      position: relative;
+      top: 100px;
+      right: -80px;
       width: 400px;
     }
     .tablas
     {
-      position:fixed;
-      right: 80px;
-      top: 230px;
+      position:relative;
+      right: -250px;
+      top: -100px;
     }
   </style>
   <?php include '../html/Head.html'?>
