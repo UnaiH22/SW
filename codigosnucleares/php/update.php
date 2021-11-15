@@ -1,6 +1,7 @@
 <?php include 'DbConfig.php' ?>
 <?php
-
+    header("Location: Layout.php");
+    die();
     $link = mysqli_connect($server, $user, $pass, $basededatos);
         
     $usuarios = mysqli_query($link,"select * from Usuarios");
