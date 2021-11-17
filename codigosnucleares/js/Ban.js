@@ -19,7 +19,7 @@ $(document).ready(function()
 
     $("#ban").click(function()
     {
-        if (confirm('¿Seguro que quieres banear a ' + $('#usuario_modificado').val() + '?')) 
+        if (confirm('¿Seguro que quieres cambiar el estado a ' + $('#usuario_modificado').val() + '?')) 
         {
             $.ajax
             ({

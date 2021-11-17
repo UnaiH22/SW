@@ -96,6 +96,18 @@
   <script language=JavaScript src="../js/ValidateFieldsQuestionJQ.js"></script>
   <script language=JavaScript src="../js/ShowImageInForm.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+  input[type=text], input[type=password] 
+  {
+    font-size: 16px;
+    font-size: max(16px, 1em);
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 1px solid;
+    border-radius: 4px;
+  }
+  </style>
   <?php include '../html/Head.html'?>
 </head>
 <body>

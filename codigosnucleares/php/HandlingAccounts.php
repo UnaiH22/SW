@@ -24,8 +24,7 @@ if (isset($_SESSION['user']) && $_SESSION['rol'] != "Admin")
   <script src="../js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../js/jquery.toast.min.js"></script>
   <script language=JavaScript src="../js/Ban.js"></script>
- 
-  
+
   <style>
     .elform
     {
@@ -41,6 +40,39 @@ if (isset($_SESSION['user']) && $_SESSION['rol'] != "Admin")
       top: -100px;
       width: 200px;
     }
+    .Bbutton {
+      color: #fff !important;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: #c22725;
+      padding: 20px;
+      border-radius: 5px;
+      display: inline-block;
+      border: none;
+    }
+    .buttonC
+    {
+      background: #c24f25;
+    }
+    .Bbutton:hover
+    {
+      background: #ed9230;
+      letter-spacing: 1px;
+      -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+      -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+      box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    }
+    .buttonC2:hover
+    {
+      background: #ed3330;
+    }
+    input[type=text] {
+      width: 100%;
+      padding: 3px 3px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+
   </style>
   <?php include '../html/Head.html'?>
 </head>
@@ -55,8 +87,8 @@ if (isset($_SESSION['user']) && $_SESSION['rol'] != "Admin")
         <div class = elform>
           Usuario a Gestionar <br/>
           <input type=text style = "width: 250px" id=usuario_modificado><br/><br/>
-          <input type=button value=Ban id=ban>
-          <input type=button value=Eliminar id=delete>
+          <input type=button value="Ban/Unban" id=ban class = "Bbutton buttonC">
+          <input type=button value=Eliminar id=delete class = "Bbutton buttonC2">
         </div>
         <div id = "usrs" class = "tablas">
         </div>

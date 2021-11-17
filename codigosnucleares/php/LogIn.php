@@ -46,7 +46,9 @@
             header("Location: IncreaseGlobalCounter.php?addUser=true");
           }
           else
+          {
             $error .= "Estas Baneado.";
+          }
         }
     }
 ?>
@@ -55,6 +57,17 @@
 <head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <?php include '../html/Head.html'?>
+  <style>
+input {
+  font-size: 16px;
+  font-size: max(16px, 1em);
+  font-family: inherit;
+  padding: 0.25em 0.5em;
+  background-color: #fff;
+  border: 1px solid;
+  border-radius: 4px;
+}
+  </style>
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
@@ -76,9 +89,13 @@
           echo "<font color='red'>".$error."</font>";
       } ?>
       </div>
-      
+      <div>
       <input type="submit" value="Enviar" name="enviar" id="enviar">
-      <?php if (isset($error2)) echo '<br/> <img src = ../images/notpass.gif height = 220px width = 400px>'; ?>
+    </div>
+      <?php if (isset($error2)) echo '<br/> <img src = ../images/notpass.gif height = 220px width = 400px>';
+            else if (isset($error) && $error == 'Estas Baneado.')
+            echo '<br/><img src = ../images/banned.gif height = 220px width = 400px>';
+       ?>
     </form>
       
     </div>

@@ -14,12 +14,12 @@
                 if (!mysqli_query($link,"update Usuarios set Estado = 'Activo' where Email ='$usr'"))
                     echo 'Ha habido un error.';
                 else
-                    echo '¡El usuario <strong>' . $usr . '</strong> ha sido <span style="color:green;">Unbaneado</span> correctamente!';
+                    echo '¡El usuario <strong>' . $usr . '</strong> ha <span style="color:pink;"> vuelto a la vida</span> correctamente!';
             else
                 if (!mysqli_query($link,"update Usuarios set Estado = 'Baneado' where Email ='$usr'"))
                     echo 'Ha habido un error.';
                 else
-                    echo '¡El usuario <strong>' . $usr . '</strong> ha sido <span style="color:red;">Baneado</span> correctamente!';
+                    echo '¡El usuario <strong>' . $usr . '</strong> ha sido <span style="color:red;">arrojado al abismo </span> correctamente!';
         }
         else
         {
