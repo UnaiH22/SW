@@ -1,6 +1,4 @@
-$(document).ready(function()
-{
-    function refresh()
+function refresh()
     {
         $.ajax
         ({
@@ -14,8 +12,10 @@ $(document).ready(function()
             cache : false,
         });
     }
-    refresh();
+refresh();
 
+$(document).ready(function()
+{
     $("#ban").click(function()
     {
         if (confirm('¿Seguro que quieres cambiar el estado a ' + $('#usuario_modificado').val() + '?')) 
@@ -51,9 +51,10 @@ $(document).ready(function()
                         loader: false,
                         stack: false
                     })
+                    refresh();
                 }
             });
-            refresh();
+            //refresh();
         }
         
     });
@@ -93,9 +94,10 @@ $(document).ready(function()
                         loader: false,
                         stack: false
                     })
+                    refresh();
                 }
             });
-            refresh();
+            //refresh();
         }
     });
 });
