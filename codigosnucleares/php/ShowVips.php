@@ -1,4 +1,18 @@
 <?php
+session_start();
+if (!isset($_SESSION['user']))
+{
+    header("Location: Layout.php");
+    exit();
+}
+if (isset($_SESSION['rol']))
+{
+    if ($_SESSION['rol'] != "Profesor")
+    {
+        header("Location: Layout.php");
+        exit();
+    }
+};
 $curl = curl_init();
 //$url = "http://localhost/SW/codigosnucleares/php/vipusers/";
 $url = "https://sw.ikasten.io/~udelrio002/vips/vipusers/";

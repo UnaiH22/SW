@@ -1,4 +1,5 @@
-<?php include 'DbConfig.php' ?>
+<?php include 'DbConfig.php';
+include 'IncreaseGlobalCounter.php' ?>
 <?php
     session_start();
     if (isset($_SESSION['user']))
@@ -43,7 +44,8 @@
             $_SESSION['user'] = $us_email;
             $_SESSION['foto'] = $usuarioDato["Foto"];
             $_SESSION['rol'] = $type;
-            header("Location: IncreaseGlobalCounter.php?addUser=true");
+            incrementar();
+            header("Location: Layout.php");
           }
           else
           {

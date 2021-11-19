@@ -15,7 +15,6 @@ $(document).ready(function()
         });
     }
     refresh();
-    setInterval(function(){refresh()}, 3000);
 
     $("#ban").click(function()
     {
@@ -54,6 +53,7 @@ $(document).ready(function()
                     })
                 }
             });
+            refresh();
         }
         
     });
@@ -95,6 +95,7 @@ $(document).ready(function()
                     })
                 }
             });
+            refresh();
         }
     });
 });

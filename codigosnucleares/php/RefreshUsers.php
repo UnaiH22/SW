@@ -1,6 +1,19 @@
 <?php 
-    include 'DbConfig.php';
     session_start();
+    if (!isset($_SESSION['user']))
+    {
+        header("Location: Layout.php");
+        exit();
+    }
+    if (isset($_SESSION['rol']))
+    {
+        if ($_SESSION['rol'] != "Admin")
+        {
+            header("Location: Layout.php");
+            exit();
+        }
+    };
+    include 'DbConfig.php';
     $admin = $_SESSION['user'];
     $link = mysqli_connect($server, $user, $pass, $basededatos);
     $users = mysqli_query($link,"select * from Usuarios where Email !='$admin'");
