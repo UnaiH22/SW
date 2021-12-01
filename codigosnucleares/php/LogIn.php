@@ -13,7 +13,7 @@ include 'IncreaseGlobalCounter.php' ?>
         $us_email = trim($_POST['emailUser']);
         $us_pw = trim($_POST['passwordUser']);
 
-        $link = mysqli_connect($server, $user, $pass, $basededatos);
+       /* $link = mysqli_connect($server, $user, $pass, $basededatos);
         $us_pw_limpia = mysqli_real_escape_string($link, $us_pw);
         $us_email_limpia = mysqli_real_escape_string($link, $us_email);
         $pw_encrypted = md5($us_pw_limpia);
@@ -21,13 +21,27 @@ include 'IncreaseGlobalCounter.php' ?>
         $usuarios = mysqli_query($link,"select * from Usuarios where Email ='$us_email_limpia' and Contraseña = '$pw_encrypted'");
         $usuarioDato = $usuarios->fetch_assoc();
         $cont= mysqli_num_rows($usuarios);
-        mysqli_close( $link);
+        mysqli_close( $link);*/
+
+        try {
+          $dsn = "mysql:host=$server;dbname=$basededatos";
+          $dbh = new PDO($dsn, $user, $pass);
+          } catch (PDOException $e){
+          echo $e->getMessage();
+          }
+          $pw_encrypted = md5($us_pw);
+          $stmt = $dbh->prepare("SELECT * FROM Usuarios WHERE Email = ? and Contraseña = ?");
+          $stmt->bindParam(1,$us_email);
+          $stmt->bindParam(2,$us_pw);
+          $stmt->setFetchMode(PDO::FETCH_ASSOC);
+          $stmt->execute();
+          $usuarioDato = $stmt->fetch();
+          $cont = $stmt->rowCount();
+          $dbh = null;
 
         if($cont == 0)
         {
             $error = "Datos incorrectos.";
-            if ($us_pw_limpia != $us_pw || $us_email_limpia != $us_email)
-              $error2 = "";
         }
         else
           $estado_usuario = $usuarioDato['Estado'];
