@@ -13,16 +13,6 @@ include 'IncreaseGlobalCounter.php' ?>
         $us_email = trim($_POST['emailUser']);
         $us_pw = trim($_POST['passwordUser']);
 
-       /* $link = mysqli_connect($server, $user, $pass, $basededatos);
-        $us_pw_limpia = mysqli_real_escape_string($link, $us_pw);
-        $us_email_limpia = mysqli_real_escape_string($link, $us_email);
-        $pw_encrypted = md5($us_pw_limpia);
-        
-        $usuarios = mysqli_query($link,"select * from Usuarios where Email ='$us_email_limpia' and Contraseña = '$pw_encrypted'");
-        $usuarioDato = $usuarios->fetch_assoc();
-        $cont= mysqli_num_rows($usuarios);
-        mysqli_close( $link);*/
-
         try {
           $dsn = "mysql:host=$server;dbname=$basededatos";
           $dbh = new PDO($dsn, $user, $pass);
@@ -32,40 +22,32 @@ include 'IncreaseGlobalCounter.php' ?>
           $pw_encrypted = md5($us_pw);
           $stmt = $dbh->prepare("SELECT * FROM Usuarios WHERE Email = ? and Contraseña = ?");
           $stmt->bindParam(1,$us_email);
-          $stmt->bindParam(2,$us_pw);
+          $stmt->bindParam(2,$pw_encrypted);
           $stmt->setFetchMode(PDO::FETCH_ASSOC);
           $stmt->execute();
-          $usuarioDato = $stmt->fetch();
-          $cont = $stmt->rowCount();
-          $dbh = null;
+          $cont=0;
 
-        if($cont == 0)
-        {
-            $error = "Datos incorrectos.";
-        }
-        else
-          $estado_usuario = $usuarioDato['Estado'];
-       
-        if ($error == "")
-        {
-          if ($estado_usuario == "Activo")
-          {
-            $link = mysqli_connect($server, $user, $pass, $basededatos);
-            $tipo_user = mysqli_query($link,"select Tipo from Usuarios where Email ='$us_email_limpia'");
-            $row = mysqli_fetch_row($tipo_user);
-            $type = $row[0];
-            mysqli_close( $link);
+          if($usuarioDato = $stmt->fetch()){
+
+            $cont++;
+            $estado_usuario = $usuarioDato['Estado'];
+
+            if ($estado_usuario == "Activo"){
             $_SESSION['user'] = $us_email;
             $_SESSION['foto'] = $usuarioDato["Foto"];
             $_SESSION['rol'] = $type;
             incrementar();
             header("Location: Layout.php");
-          }
-          else
-          {
+            }else{
             $error .= "Estas Baneado.";
+            }
+            
           }
+
+        if($cont == 0){
+          $error = "Datos incorrectos.";
         }
+        $dbh = null;
     }
 ?>
 <!DOCTYPE html>

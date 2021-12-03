@@ -23,10 +23,23 @@
         $regEmailProf = preg_match("/^(([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es))$/", $us_email);
         $regNombre = preg_match("/^[A-Za-z]{2,}\s[A-Za-z]{2,}([A-Za-z]|\s)*$/", $us_nombre);
 
-        $link = mysqli_connect($server, $user, $pass, $basededatos);
+       /* $link = mysqli_connect($server, $user, $pass, $basededatos);
         $usuarios = mysqli_query($link,"select * from Usuarios where Email ='$us_email'");
         $cont= mysqli_num_rows($usuarios);
-        mysqli_close( $link);
+        mysqli_close( $link);*/
+        try {
+          $dsn = "mysql:host=$server;dbname=$basededatos";
+          $dbh = new PDO($dsn, $user, $pass);
+          } catch (PDOException $e){
+          echo $e->getMessage();
+          }
+          $pw_encrypted = md5($us_pw);
+          $stmt = $dbh->prepare("SELECT COUNT(*) FROM Usuarios WHERE Email = ?");
+          $stmt->bindParam(1,$us_email);
+          $stmt->setFetchMode(PDO::FETCH_ASSOC);
+          $stmt->execute();
+          $cont = $stmt->fetch();
+          $dbh = null;
 
         $matriculado = verificarMatricula($us_email);
         
