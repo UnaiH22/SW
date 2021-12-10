@@ -81,7 +81,8 @@ input {
 
       <div class=form-group>
       <label for="passwordUser">Contraseña<span style="color: #800080">(*)</span>:</label>
-      <input style="width: 300px" type="password" id="passwordUser" name="passwordUser"><br>
+      <input style="width: 300px" type="password" id="passwordUser" name="passwordUser">
+      <a href='ForgotPassword.php'>&ensp;Forgot password</a><br>
       <?php if(isset($error))
       {
           echo "<font color='red'>".$error."</font>";
