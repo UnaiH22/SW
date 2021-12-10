@@ -39,9 +39,9 @@
           $stmt->setFetchMode(PDO::FETCH_ASSOC);
           $stmt->execute();
           $cont = $stmt->fetch();
+          $cont=$cont['COUNT(*)'];
           $dbh = null;
-
-        $matriculado = verificarMatricula($us_email);
+        //$matriculado = verificarMatricula($us_email);
         
         if ($us_tipo == "Estudiante" && !$regEmailStud || $us_tipo == "Profesor" && !$regEmailProf)
         {
@@ -53,10 +53,10 @@
             $error_email .= "El email está en uso.";
         }
 
-        if ($matriculado == "NO")
+        /*if ($matriculado == "NO")
         {
           $error_email .= "Este correo no esta matriculado.";
-        }
+        }*/
 
         if (!$regNombre)
         {
@@ -68,12 +68,11 @@
             $error_pw = "La contraseña debe tener al menos 8 caracteres y las contraseñas tienen que coincidir.";
         }
 
-        if ($error_email == "" && $error_nom == "" && $error_pw == "" && $matriculado == "SI")
+        if ($error_email == "" && $error_nom == "" && $error_pw == "")
         {
-            $link = mysqli_connect($server, $user, $pass, $basededatos);
+            //$link = mysqli_connect($server, $user, $pass, $basededatos);
 
-            if (!strlen($_FILES["imagen"]["name"]) < 1) 
-            {
+            if (!strlen($_FILES["imagen"]["name"]) < 1) {
                 $target_dir = "../images/";
                 $target_file = $target_dir . $_FILES["imagen"]["name"];
       
@@ -83,19 +82,32 @@
                 }
       
                 $image = $_FILES["imagen"]["name"]; // para guardar en una variable el nombre de la imagen
-              } 
-              else 
-              {
+            }else{
                 $default_images = array("brainlet1.jpg", "brainlet2.jpg", "brainlet3.jpg", "brainlet4.jpg", "brainlet5.jpg", "brainlet6.jpg", "brainlet7.jpg", "brainlet8.jpg", "brainlet9.jpg", "brainlet10.jpg");
                 $image = $default_images[rand(0,9)];
-              }
+            }
               $encrypted_pw = md5($us_pw);
-              $sql = "INSERT INTO Usuarios(Tipo, Email, Nombre, Contraseña, Foto) VALUES ('$us_tipo','$us_email','$us_nombre','$encrypted_pw','$image')";
+              try {
+                $dsn = "mysql:host=$server;dbname=$basededatos";
+                $dbh = new PDO($dsn, $user, $pass);
+              }catch (PDOException $e){
+                echo $e->getMessage();
+              }
+              $stmt = $dbh->prepare("INSERT INTO Usuarios(Tipo, Email, Nombre, Contraseña, Foto) VALUES (?, ?, ?, ?, ?)"); 
+              $stmt->bindParam(1, $us_tipo);
+              $stmt->bindParam(2, $us_email);
+              $stmt->bindParam(3, $us_nombre);
+              $stmt->bindParam(4, $encrypted_pw);
+              $stmt->bindParam(5, $image);
+              $stmt->execute();
+              $dbh = null;
+
+           /*   $sql = "INSERT INTO Usuarios(Tipo, Email, Nombre, Contraseña, Foto) VALUES ('$us_tipo','$us_email','$us_nombre','$encrypted_pw','$image')";
               if (!mysqli_query($link, $sql)) {
                 die('Error en la query: ' . mysqli_error($link));
-              }
+              }*/
               echo "Registrado correctamente.";
-              mysqli_close($link);
+              //mysqli_close($link);
               header("Location: LogIn.php");
         }
         echo($error);
