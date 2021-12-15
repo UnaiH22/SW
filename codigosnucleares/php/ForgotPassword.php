@@ -1,4 +1,4 @@
-<?php
+<?php include 'DbConfig.php';
 if(isset($_POST['enviar'])){
     try {
         $dsn = "mysql:host=$server;dbname=$basededatos";
@@ -14,7 +14,11 @@ if(isset($_POST['enviar'])){
     $cont=$cont['COUNT(*)'];
     $dbh = null;
     if($cont=1){
-        
+        $para      = $_POST['emailUser'];
+        $titulo    = 'Restablecer contraseña';
+        $mensaje   = 'Codigo de recuperacion: ' . substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),1,6);
+
+        mail($para, $titulo, $mensaje);
     }
 }
 ?>

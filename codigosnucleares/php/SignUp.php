@@ -19,7 +19,8 @@
         $us_pw = trim($_POST['passwordUser']);
         $us_pw2 = trim($_POST['passwordUser2']);
 
-        $regEmailStud = preg_match("/^([a-z]+[0-9]{3}@ikasle\.ehu\.(eus|es))$/", $us_email);
+        $regEmailStud = preg_match("/^(([a-z]+[0-9]{3}@ikasle\.ehu\.(eus|es))|([A-Za-z]+@gmail\.com))$/", $us_email);
+       // $regEmailGmail = preg_match("/^([A-Za-z]+@gmail\.com)$/", $us_email);
         $regEmailProf = preg_match("/^(([a-z]+|[a-z]+\.[a-z]+)@ehu\.(eus|es))$/", $us_email);
         $regNombre = preg_match("/^[A-Za-z]{2,}\s[A-Za-z]{2,}([A-Za-z]|\s)*$/", $us_nombre);
 
