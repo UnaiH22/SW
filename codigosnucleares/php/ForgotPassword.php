@@ -1,4 +1,5 @@
 <?php include 'DbConfig.php';
+session_start();
 if(isset($_POST['enviar'])){
     try {
         $dsn = "mysql:host=$server;dbname=$basededatos";
@@ -14,9 +15,11 @@ if(isset($_POST['enviar'])){
     $cont=$cont['COUNT(*)'];
     $dbh = null;
     if($cont=1){
-        $para      = $_POST['emailUser'];
-        $titulo    = 'Restablecer contraseña';
-        $mensaje   = 'Codigo de recuperacion: ' . substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),1,6);
+        $para = $_POST['emailUser'];
+        $titulo = 'Restablecer contraseña';
+        $code = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),1,6);
+        $_SESSION['code'] = $code
+        $mensaje = 'Codigo de recuperacion: ' . $code;
 
         mail($para, $titulo, $mensaje);
     }
@@ -33,7 +36,7 @@ if(isset($_POST['enviar'])){
     <?php include '../php/Menus.php' ?>
     <section class="main" id="s1">
         <div>
-            <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">Login</h1><br>
+            <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">FORGOT PASSWORD</h1><br>
             <form id="Forgot" name="register" method="POST" enctype="multipart/form-data">
             <div class=form-group>
                 <label for="emailUser">E-mail<span style="color: #800080">(*)</span>:</label>
