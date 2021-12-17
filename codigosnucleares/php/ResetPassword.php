@@ -15,7 +15,7 @@ if(isset($_POST['enviar'])){
             unset($_SESSION['email']);
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $stmt->execute();
-            echo "<label>succesfuly updated</label>"
+            echo "<label>succesfuly updated</label>";
             $dbh = null;
             sleep(1);
             header('Location: Layout.php');
