@@ -1,6 +1,6 @@
 <?php include 'DbConfig.php';
 session_start();
-    if(isset($_POST['enviar']){
+    if(isset($_POST['enviar'])){
         $error = '';
         if($_SESSION['code'] == $_POST['code']){
             unset($_SESSION['code']);
