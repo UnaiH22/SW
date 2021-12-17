@@ -23,6 +23,7 @@ if(isset($_POST['enviar'])){
         $mensaje = 'Codigo de recuperacion: ' . $code;
 
         mail($para, $titulo, $mensaje);
+        header('Location: RecoveryCode.php');
     }
 }
 ?>
