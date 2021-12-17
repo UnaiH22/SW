@@ -15,8 +15,10 @@ if(isset($_POST['enviar'])){
             unset($_SESSION['email']);
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $stmt->execute();
-
+            echo "<label>succesfuly updated</label>"
             $dbh = null;
+            sleep(1);
+            header('Location: Layout.php');
     }
 }
 ?>
@@ -35,9 +37,9 @@ if(isset($_POST['enviar'])){
             <form id="Forgot" name="register" method="POST" enctype="multipart/form-data">
                 <div class=form-group>
                     <label for="emailUser">New password<span style="color: #800080">(*)</span>:</label>
-                    <input style="width: 400px" type="text" id="passw" name="passw"><br>
+                    <input style="width: 400px" type="password" id="passw" name="passw"><br>
                     <label for="emailUser">Repeat password<span style="color: #800080">(*)</span>:</label>
-                    <input style="width: 400px" type="text" id="rpassw" name="rpassw"><br>
+                    <input style="width: 400px" type="password" id="rpassw" name="rpassw"><br>
                 </div>
                 <div>
                     <input type="submit" value="Enviar" name="enviar" id="enviar">
