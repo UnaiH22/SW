@@ -40,13 +40,14 @@ if(isset($_POST['enviar'])){
         <div>
             <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">FORGOT PASSWORD</h1><br>
             <form id="Forgot" name="register" method="POST" enctype="multipart/form-data">
-            <div class=form-group>
-                <label for="emailUser">E-mail<span style="color: #800080">(*)</span>:</label>
-                <input style="width: 400px" type="text" id="emailUser" name="emailUser" placeholder="nombre222@ikasle.ehu.eus | nombre@ehu.es" value="<?php if ( isset($us_email) ) echo $us_email; ?>"><br>
-            </div>
-            <div>
-                <input type="submit" value="Enviar" name="enviar" id="enviar">
-            </div>
+                <div class=form-group>
+                    <label for="emailUser">E-mail<span style="color: #800080">(*)</span>:</label>
+                    <input style="width: 400px" type="text" id="emailUser" name="emailUser" placeholder="nombre222@ikasle.ehu.eus | nombre@ehu.es" value="<?php if ( isset($us_email) ) echo $us_email; ?>"><br>
+                </div>
+                <div>
+                    <input type="submit" value="Enviar" name="enviar" id="enviar">
+                </div>
+            </form>
         </div>
     </section>
     <?php include '../html/Footer.html' ?>
