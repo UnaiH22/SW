@@ -13,6 +13,7 @@ if(isset($_POST['enviar'])){
             $stmt = $dbh->prepare("update Usuarios set Contraseña = ? where Email = ?");
             $stmt->bindParam(1,$pw_encrypted);
             $stmt->bindParam(2,$_SESSION['email']);
+            echo $_SESSION['email'];
             unset($_SESSION['email']);
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $stmt->execute();
