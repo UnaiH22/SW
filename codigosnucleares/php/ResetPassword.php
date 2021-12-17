@@ -2,6 +2,7 @@
 session_start();
 if(isset($_POST['enviar'])){
     if($_POST['passw']==$_POST['rpassw']){
+        $error = '';
         try {
             $dsn = "mysql:host=$server;dbname=$basededatos";
             $dbh = new PDO($dsn, $user, $pass);
@@ -18,7 +19,9 @@ if(isset($_POST['enviar'])){
             echo "<label>succesfuly updated</label>";
             $dbh = null;
             sleep(1);
-            header('Location: Layout.php');
+          //  header('Location: Layout.php');
+    }else{
+        $error='las contraseñas no concuerdan';
     }
 }
 ?>
@@ -43,6 +46,7 @@ if(isset($_POST['enviar'])){
                 </div>
                 <div>
                     <input type="submit" value="Enviar" name="enviar" id="enviar">
+                    <?php if(isset($error))echo $error?>
                 </div>
             </from>
         </div>
