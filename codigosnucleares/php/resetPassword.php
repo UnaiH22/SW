@@ -2,7 +2,21 @@
 session_start();
 if(isset($_POST['enviar'])){
     if($_POST['passw']==$_POST['rpassw']){
-        
+        try {
+            $dsn = "mysql:host=$server;dbname=$basededatos";
+            $dbh = new PDO($dsn, $user, $pass);
+            } catch (PDOException $e){
+            echo $e->getMessage();
+            }
+            $pw_encrypted = md5($us_pw);
+            $stmt = $dbh->prepare("update Usuarios set Contraseña = ? where Email = ?");
+            $stmt->bindParam(1,$pw_encrypted);
+            $stmt->bindParam(2,$_SESSION['email']);
+            unset($_SESSION['email']);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt->execute();
+
+            $dbh = null;
     }
 }
 ?>

@@ -16,9 +16,10 @@ if(isset($_POST['enviar'])){
     $dbh = null;
     if($cont=1){
         $para = $_POST['emailUser'];
+        $_SESSION['email'] = $_POST['emailUser'];
         $titulo = 'Restablecer contraseña';
         $code = substr(str_shuffle('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'),1,6);
-        $_SESSION['code'] = $code
+        $_SESSION['code'] = $code;
         $mensaje = 'Codigo de recuperacion: ' . $code;
 
         mail($para, $titulo, $mensaje);

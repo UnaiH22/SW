@@ -4,7 +4,7 @@ session_start();
         $error = '';
         if($_SESSION['code'] == $_POST['code']){
             unset($_SESSION['code']);
-            header('Location: resetPassword.php');
+            header('Location: ResetPassword.php');
         }else{
             $error='codigo incorrecto';
         }
