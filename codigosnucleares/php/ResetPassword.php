@@ -12,15 +12,14 @@ if(isset($_POST['enviar'])){
             $pw_encrypted = md5($us_pw);
             $stmt = $dbh->prepare("update Usuarios set Contraseña = ? where Email = ?");
             $stmt->bindParam(1,$pw_encrypted);
-            $stmt->bindParam(2,$_SESSION['email']);
-            echo $_SESSION['email'];
-            unset($_SESSION['email']);
+            $stmt->bindParam(2,$_SESSION['email']);       
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $stmt->execute();
+            unset($_SESSION['email']);
             echo "<label>succesfuly updated</label>";
             $dbh = null;
             sleep(1);
-          //  header('Location: Layout.php');
+            header('Location: Layout.php');
     }else{
         $error='las contraseñas no concuerdan';
     }
