@@ -23,14 +23,15 @@ session_start();
         <div>
             <h1 style="font-size:300%;font-family:courier;background-color:lightblue;">RECOVERY</h1><br>
             <form id="Forgot" name="register" method="POST" enctype="multipart/form-data">
-            <div class=form-group>
-                <label for="emailUser">Recovery code<span style="color: #800080">(*)</span>:</label>
-                <input style="width: 400px" type="text" id="code" name="code"><br>
-            </div>
-            <div>
-                <input type="submit" value="Enviar" name="enviar" id="enviar">
-                <?php if(isset($error))echo $error?>
-            </div>
+                <div class=form-group>
+                    <label for="emailUser">Recovery code<span style="color: #800080">(*)</span>:</label>
+                    <input style="width: 400px" type="text" id="code" name="code"><br>
+                </div>
+                <div>
+                    <input type="submit" value="Enviar" name="enviar" id="enviar">
+                    <?php if(isset($error))echo $error?>
+                </div>
+            </form>
         </div>
     </section>
     <?php include '../html/Footer.html' ?>
