@@ -9,7 +9,7 @@ if(isset($_POST['enviar'])){
             } catch (PDOException $e){
             echo $e->getMessage();
             }
-            $pw_encrypted = md5($us_pw);
+            $pw_encrypted = md5($_POST['passw']);
             $stmt = $dbh->prepare("update Usuarios set Contraseña = ? where Email = ?");
             $stmt->bindParam(1,$pw_encrypted);
             $stmt->bindParam(2,$_SESSION['email']);       

@@ -35,7 +35,7 @@ include 'IncreaseGlobalCounter.php' ?>
             if ($estado_usuario == "Activo"){
             $_SESSION['user'] = $us_email;
             $_SESSION['foto'] = $usuarioDato["Foto"];
-            $_SESSION['rol'] = $type;
+            $_SESSION['rol'] = $usuarioDato['Tipo'];
             incrementar();
             header("Location: Layout.php");
             }else{
